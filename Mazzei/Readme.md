@@ -1,3 +1,5 @@
+# Elaborazione automatica del linguaggio naturale <br> - Esercizio #2
+
 <table class="tg" align="right">
   <tr>
     <th class="tg-0pky"> <b>Author:</b> </th>
@@ -8,8 +10,6 @@
     <th class="tg-0pky"> - <a href="https://github.com/CesareIurlaro">GitHub.com </a> <br>
                          - <a href="https://www.linkedin.com/in/cesare-iurlaro">Linkedin.com </a></th></tr>
 </table> 
-
-# Elaborazione automatica del linguaggio naturale <br> - Esercizio #2
 
 ## 1. Traccia 
 L'esercizio consiste nell'implementazione di un semplice **traduttore transfer** **IT <img src="https://latex.codecogs.com/gif.latex?$\rightarrow$"/> IT**-**YO**, ovvero di un _sistema di traduzione_ che prenda in _input_ una frase scritta in italiano e che restituisca in _output_ la corrispondente traduzione in 'italiano-yoda', lingua fittizia parlata nell'universo cinematografico della saga di Guerre Stellari.
