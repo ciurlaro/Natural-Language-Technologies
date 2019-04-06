@@ -9,15 +9,13 @@
                          - <a href="https://www.linkedin.com/in/cesare-iurlaro">Linkedin.com </a></th></tr>
 </table> 
 
-# Elementi di elaborazione automatica del linguaggio naturale - Esercizio #2
-
-
+# Elaborazione automatica del linguaggio naturale <br> - Esercizio #2
 
 ## 1. Traccia 
-L'esercizio consiste nell'implementazione di un semplice **traduttore transfer** **IT $\rightarrow$ IT**-**YO**, ovvero di un _sistema di traduzione_ che prenda in _input_ una frase scritta in italiano e che restituisca in _output_ la corrispondente traduzione in 'italiano-yoda', lingua fittizia parlata nell'universo cinematografico della saga di Guerre Stellari.
+L'esercizio consiste nell'implementazione di un semplice **traduttore transfer** **IT <img src="https://latex.codecogs.com/gif.latex?$\rightarrow$"/> IT**-**YO**, ovvero di un _sistema di traduzione_ che prenda in _input_ una frase scritta in italiano e che restituisca in _output_ la corrispondente traduzione in 'italiano-yoda', lingua fittizia parlata nell'universo cinematografico della saga di Guerre Stellari.
 
 
-La **parsificazione** è vincolata all'utilizzo dell'**_algoritmo CKY_**, algoritmo per _grammatiche fuori dal contesto_ (_CFG_) che sfrutta il metodo di **_programmazione dinamica_** e una strategia **_bottom-up_** per svolgere il _task_ con una _complessità nel caso peggiore_ di  <img src="https://latex.codecogs.com/gif.latex?$\mathcal{O}\left(n^{3}&space;\cdot|G|\right)$"/>, dove <img src="https://latex.codecogs.com/gif.latex?$n$"/> è la _lunghezza_ della stringa da parsificare e <img src="https://latex.codecogs.com/gif.latex?|G|"/> la cardinalità della grammatica $G$.
+La **parsificazione** è vincolata all'utilizzo dell'**_algoritmo CKY_**, algoritmo per _grammatiche fuori dal contesto_ (_CFG_) che sfrutta il metodo di **_programmazione dinamica_** e una strategia **_bottom-up_** per svolgere il _task_ con una _complessità nel caso peggiore_ di  <img src="https://latex.codecogs.com/gif.latex?$\mathcal{O}\left(n^{3}&space;\cdot|G|\right)$"/>, dove <img src="https://latex.codecogs.com/gif.latex?$n$"/> è la _lunghezza_ della stringa da parsificare e <img src="https://latex.codecogs.com/gif.latex?|G|"/> la cardinalità della grammatica <img src="https://latex.codecogs.com/gif.latex?$G$"/>.
 
 Di seguito sono elencati alcuni esempi di traduzioni che ci si aspetta che il traduttore sia in grado di eseguire correttamente:
 
@@ -69,15 +67,15 @@ Quest'ultimo viene anche detto **XSV**, dove **X** rappresenta un qualsivoglia c
 <img src="https://latex.codecogs.com/gif.latex?\fn_cm&space;A\&space;long\&space;time\&space;ago\&space;in\&space;a\&space;galaxy\&space;far\&space;far\&space;away..."/>
 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLYrmOHFvYMRgYBpwMyVffZHZ0Os33YNoxEiR9rzKDDuRNyYQY"/>
 <hr>
-Esempi di altre lingue che fanno uso di questo ordine sono le lingue _haida_ e _kotava_.
+Esempi di altre lingue che fanno uso di questo ordine sono le lingue *haida* e *kotava*.
 
 ### 1.2 Osservazioni
 Sebbene associato ad un _ordine OSV_, il linguaggio usato da Yoda **non ha un comportamento sempre riconducibile a uno schema fisso**. Ciò significa che una regola di traduzione potrebbe essere corretta per una o più sue citazioni, ma anche che potrebbe non esserlo per altre aventi la stessa struttura sintattica.
 
-È possibile constatare ciò anche tramite l'**osservazione degli esempi**:
-1. L'**anteposizione degli aggettivi e dei sintagmi aggettivali** avviene negli esempi in cui compaiono <img src="https://latex.codecogs.com/gif.latex?$(a)$&space;$(d)$&space;$(e)$&space;$(f)$"/>
-2. L'**anteposizione dei sintagmi avverbiali** invece avviene solo nell'esempio <img src="https://latex.codecogs.com/gif.latex?$(d)$"/> e non <img src="https://latex.codecogs.com/gif.latex?$(b)$"/>
-2. L'**inversione di pronome e verbo** è infine presente solo nell'esempio <img src="https://latex.codecogs.com/gif.latex?$(b)$"/>
+È possibile constatare questa irregolarità anche tramite l'**osservazione degli esempi**:
+1. L'**anteposizione degli aggettivi e dei sintagmi aggettivali** avviene negli esempi <img src="https://latex.codecogs.com/gif.latex?$(a)$\&space;$(d)$\&space;$(e)$\&space;$(f)$"/>
+2. L'**anteposizione dei sintagmi avverbiali** avviene solo nell'esempio <img src="https://latex.codecogs.com/gif.latex?$(d)$"/> e non, per contro, in <img src="https://latex.codecogs.com/gif.latex?$(b)$"/>
+2. L'**inversione di pronome e verbo** è infine presente solamente nell'esempio <img src="https://latex.codecogs.com/gif.latex?$(b)$"/>
 
 Ciò è stato tenuto presente durante la _fase di progettazione_.
 
