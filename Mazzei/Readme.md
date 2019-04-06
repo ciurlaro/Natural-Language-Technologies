@@ -9,11 +9,9 @@
                          - <a href="https://www.linkedin.com/in/cesare-iurlaro">Linkedin.com </a></th></tr>
 </table> 
 
-<hr>
-
 # Elementi di elaborazione automatica del linguaggio naturale - Esercizio #2
 
-<hr>
+
 
 ## 1. Traccia 
 L'esercizio consiste nell'implementazione di un semplice **traduttore transfer** **IT $\rightarrow$ IT**-**YO**, ovvero di un _sistema di traduzione_ che prenda in _input_ una frase scritta in italiano e che restituisca in _output_ la corrispondente traduzione in 'italiano-yoda', lingua fittizia parlata nell'universo cinematografico della saga di Guerre Stellari.
@@ -77,9 +75,9 @@ Esempi di altre lingue che fanno uso di questo ordine sono le lingue _haida_ e _
 Sebbene associato ad un _ordine OSV_, il linguaggio usato da Yoda **non ha un comportamento sempre riconducibile a uno schema fisso**. Ciò significa che una regola di traduzione potrebbe essere corretta per una o più sue citazioni, ma anche che potrebbe non esserlo per altre aventi la stessa struttura sintattica.
 
 È possibile constatare ciò anche tramite l'**osservazione degli esempi**:
-1. L'**anteposizione degli aggettivi e dei sintagmi aggettivali** avviene negli esempi in cui compaiono $(a)$ $(d)$ $(e)$ $(f)$
-2. L'**anteposizione dei sintagmi avverbiali** invece avviene sono nell'esempio $(d)$ e non in $(b)$
-2. L'**inversione di pronome e verbo** è infine presente solo nell'esempio $(b)$
+1. L'**anteposizione degli aggettivi e dei sintagmi aggettivali** avviene negli esempi in cui compaiono <img src="https://latex.codecogs.com/gif.latex?$(a)$&space;$(d)$&space;$(e)$&space;$(f)$"/>
+2. L'**anteposizione dei sintagmi avverbiali** invece avviene solo nell'esempio <img src="https://latex.codecogs.com/gif.latex?$(d)$"/> e non <img src="https://latex.codecogs.com/gif.latex?$(b)$"/>
+2. L'**inversione di pronome e verbo** è infine presente solo nell'esempio <img src="https://latex.codecogs.com/gif.latex?$(b)$"/>
 
 Ciò è stato tenuto presente durante la _fase di progettazione_.
 
