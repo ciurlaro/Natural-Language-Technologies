@@ -1,27 +1,3 @@
-﻿
-<style type="text/css">
-div.text_cell_render h1 {  
-    font-size: 24pt; }
-
-div.text_cell_render h2 {  
-    font-size: 18pt; }
-
-div.text_cell_render h3 {  
-    font-size: 14pt; }
-
-.rendered_html pre,
-.rendered_html code {
-    font-size: medium; }
-
-.rendered_html ol {
-    list-style:decimal;
-    margin: 1em 2em; }    
-    
-.tg  {border-collapse:collapse;border-spacing:0;}
-.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
-.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
-.tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top} </style>
-
 <table class="tg" align="right">
   <tr>
     <th class="tg-0pky"> <b>Author:</b> </th>
