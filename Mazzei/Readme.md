@@ -124,13 +124,16 @@ L'algoritmo costruisce una **matrice `table`**, di tipo `ndarray`. Ciascuna **co
 
 Questa implementazione **determina se una sequenza di parole <img src="https://latex.codecogs.com/gif.latex?$S$"/> è coperta da una grammatica <img src="https://latex.codecogs.com/gif.latex?$G$"/>**:
 
-- se la **componente** di `table` <img src="https://latex.codecogs.com/gif.latex?[0,\&space;n-1]"/> è una **lista vuota**, allora vuol dire che **non esiste un albero sintattico** di <img src="https://latex.codecogs.com/gif.latex?$S$"/> in accordo a <img src="https://latex.codecogs.com/gif.latex?$G$"/>. <br> In tal caso l'**algoritmo restituisce un albero la cui radice presenta l'etichetta "`Grammar error`"**.
+- se la **componente** di `table` <img src="https://latex.codecogs.com/gif.latex?[0,\&space;n-1]"/> è una **lista vuota**, allora vuol dire che **non esiste un albero sintattico** di <img src="https://latex.codecogs.com/gif.latex?$S$"/> in accordo a <img src="https://latex.codecogs.com/gif.latex?$G$"/>. 
+
+In tal caso l'**algoritmo restituisce un albero la cui radice presenta l'etichetta "`Grammar error`"**.
 
 
 - se altrimenti tale **componente** è una **lista non vuota**, allora vuol dire che <img src="https://latex.codecogs.com/gif.latex?$G$"/> copre <img src="https://latex.codecogs.com/gif.latex?$S$"/> ed inoltre
     - se contiene **un solo elemento**, l'**interpretazione** di <img src="https://latex.codecogs.com/gif.latex?$S$"/> è **univoca**
     - se viceversa contiene **più di un elemento**, vi sono più interpretazioni di <img src="https://latex.codecogs.com/gif.latex?$S$"/> e quindi vi è **ambiguità**
-  <br> In tal caso l'**algoritmo restituisce il primo albero** presente nella lista, ignorando così l'ambiguità. <br> Se `draw` ha valore **True**, allora tale albero viene anche disegnato a schermo.
+
+In tal caso l'**algoritmo restituisce il primo albero** presente nella lista, ignorando così l'ambiguità. <br> Se `draw` ha valore **True**, allora tale albero viene anche disegnato a schermo.
 
 
 ```python
