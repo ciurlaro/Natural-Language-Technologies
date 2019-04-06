@@ -1,4 +1,4 @@
-# Elaborazione automatica del linguaggio naturale <br> - Esercizio #2
+# Elaborazione automatica del linguaggio naturale <br> - Esercizio #2 a.a 2019/2020
 
 <table class="tg" align="right">
   <tr>
@@ -124,7 +124,7 @@ L'algoritmo costruisce una **matrice `table`**, di tipo `ndarray`. Ciascuna **co
 
 Questa implementazione **determina se una sequenza di parole <img src="https://latex.codecogs.com/gif.latex?$S$"/> è coperta da una grammatica <img src="https://latex.codecogs.com/gif.latex?$G$"/>**:
 
-- se la **componente** di `table` <img src="https://latex.codecogs.com/gif.latex?$[0,\ n-1]$"/> è una **lista vuota**, allora vuol dire che **non esiste un albero sintattico** di <img src="https://latex.codecogs.com/gif.latex?$S$"/> in accordo a <img src="https://latex.codecogs.com/gif.latex?$G$"/>. <br> In tal caso l'**algoritmo restituisce un albero la cui radice presenta l'etichetta "`Grammar error`"**.
+- se la **componente** di `table` <img src="https://latex.codecogs.com/gif.latex?[0,\&space;n-1]"/> è una **lista vuota**, allora vuol dire che **non esiste un albero sintattico** di <img src="https://latex.codecogs.com/gif.latex?$S$"/> in accordo a <img src="https://latex.codecogs.com/gif.latex?$G$"/>. <br> In tal caso l'**algoritmo restituisce un albero la cui radice presenta l'etichetta "`Grammar error`"**.
 
 
 - se altrimenti tale **componente** è una **lista non vuota**, allora vuol dire che <img src="https://latex.codecogs.com/gif.latex?$G$"/> copre <img src="https://latex.codecogs.com/gif.latex?$S$"/> ed inoltre
@@ -160,7 +160,7 @@ def cky_parsing(words: list, grammar: CFG, draw=False):
 ### 2.2.2 Descrizione di `translate`
 Implementazione della **fase di traduzione** del programma.
 - _input_: albero sintattico `tree` della frase da tradurre, lista di non terminali `translation_rules` e parametro opzionale booleano `draw `.
-- _output_: matrice <img src="https://latex.codecogs.com/gif.latex?$n\times n$"/> `table` di insiemi
+- _output_: manipolazione dell'albero `tree` di partenza; rappresenta la traduzione effettuata
 
 Questa funzione effettua in `tree` una **ricerca in profondità in preordine** di un oggetto di classe `Nonterminal` (POS tag o sintagma che sia) presente nella lista `translation_rules`. Se la ricerca ha successo, antepone tale oggetto al resto della frase.
 
