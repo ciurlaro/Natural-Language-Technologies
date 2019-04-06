@@ -67,6 +67,8 @@ Quest'ultimo viene anche detto **XSV**, dove **X** rappresenta un qualsivoglia c
 <img src="https://latex.codecogs.com/gif.latex?\fn_cm&space;A\&space;long\&space;time\&space;ago\&space;in\&space;a\&space;galaxy\&space;far\&space;far\&space;away..."/>
 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLYrmOHFvYMRgYBpwMyVffZHZ0Os33YNoxEiR9rzKDDuRNyYQY"/>
 <hr>
+
+
 Esempi di altre lingue che fanno uso di questo ordine sono le lingue *haida* e *kotava*.
 
 ### 1.2 Osservazioni
@@ -99,7 +101,7 @@ Tale piattaforma offre una _suite di librerie_ che mettono a disposizione classi
     
     - `data_folder` e `data_file` sono i **riferimenti sul filesystem** rispettivamente alla _cartella delle grammatiche_ e ad una _specifica grammatica_
     -  `sentences` è una lista di **stringhe di _input_** (_frasi_) da sottoporre al traduttore
-    -  `translation_rules`  è la lista di `Nonterminal`; **il traduttore la utilizza per trasformazione l'albero sintattico** in fase di traduzione
+    -  `translation_rules`  è la lista di `Nonterminal`; **il traduttore la utilizza per trasformare l'albero sintattico** in fase di traduzione
     
     
     
@@ -111,7 +113,7 @@ Tale piattaforma offre una _suite di librerie_ che mettono a disposizione classi
 
 - `_main_`, responsabile dell'**avvio del programma**; richiama entrambi i moduli precedentemente descritti.
 
-### 2.3.1 Descrizione di `cky_parsing`
+### 2.2.1 Descrizione di `cky_parsing`
 Implementa l'**algoritmo di parsificazione CKY**.
 - _input_: lista di parole `words`, Context-Free-Grammar `grammar` e parametro opzionale booleano `draw `.
 - _output_: albero sintattico le cui foglie sono componenti di `words` e il cui nodo padre è il POS tag che l'algoritmo ha associato loro
@@ -120,14 +122,14 @@ Implementa l'**algoritmo di parsificazione CKY**.
 
 L'algoritmo costruisce una **matrice `table`**, di tipo `ndarray`. Ciascuna **componente** di tale matrice è una **lista di alberi sintattici** potenzialmente vuota. La presenza di **un albero sintattico certifica la corrispondenza tra una produzione della grammatica e la frase di input**.
 
-Questa implementazione **determina se una sequenza di parole $S$ è coperta da una grammatica $G$**:
+Questa implementazione **determina se una sequenza di parole <img src="https://latex.codecogs.com/gif.latex?$S$"/> è coperta da una grammatica <img src="https://latex.codecogs.com/gif.latex?$G$"/>**:
 
-- se la **componente** di `table` **$[0,\ n-1]$** è una **lista vuota**, allora vuol dire che **non esiste un albero sintattico** di $S$ in accordo a $G$. <br> In tal caso l'**algoritmo restituisce un albero la cui radice presenta l'etichetta "`Grammar error`"**.
+- se la **componente** di `table` <img src="https://latex.codecogs.com/gif.latex?$[0,\ n-1]$"/> è una **lista vuota**, allora vuol dire che **non esiste un albero sintattico** di <img src="https://latex.codecogs.com/gif.latex?$S$"/> in accordo a <img src="https://latex.codecogs.com/gif.latex?$G$"/>. <br> In tal caso l'**algoritmo restituisce un albero la cui radice presenta l'etichetta "`Grammar error`"**.
 
 
-- se altrimenti tale **componente** è una **lista non vuota**, allora vuol dire che $G$ copre $S$ ed inoltre
-    - se contiene **un solo elemento**, l'**interpretazione** di $S$ è **univoca**
-    - se viceversa contiene **più di un elemento**, vi sono più interpretazioni di $S$ e quindi vi è **ambiguità**
+- se altrimenti tale **componente** è una **lista non vuota**, allora vuol dire che <img src="https://latex.codecogs.com/gif.latex?$G$"/> copre <img src="https://latex.codecogs.com/gif.latex?$S$"/> ed inoltre
+    - se contiene **un solo elemento**, l'**interpretazione** di <img src="https://latex.codecogs.com/gif.latex?$S$"/> è **univoca**
+    - se viceversa contiene **più di un elemento**, vi sono più interpretazioni di <img src="https://latex.codecogs.com/gif.latex?$S$"/> e quindi vi è **ambiguità**
   <br> In tal caso l'**algoritmo restituisce il primo albero** presente nella lista, ignorando così l'ambiguità. <br> Se `draw` ha valore **True**, allora tale albero viene anche disegnato a schermo.
 
 
@@ -155,10 +157,10 @@ def cky_parsing(words: list, grammar: CFG, draw=False):
         return table[0, n-1][0] if len(table[0, n-1]) != 0 else Tree("Grammar error", []) 
 ```
 
-### 2.3.1 Descrizione di `translate`
+### 2.2.2 Descrizione di `translate`
 Implementazione della **fase di traduzione** del programma.
 - _input_: albero sintattico `tree` della frase da tradurre, lista di non terminali `translation_rules` e parametro opzionale booleano `draw `.
-- _output_: matrice $n\times n$ `table` di insiemi
+- _output_: matrice <img src="https://latex.codecogs.com/gif.latex?$n\times n$"/> `table` di insiemi
 
 Questa funzione effettua in `tree` una **ricerca in profondità in preordine** di un oggetto di classe `Nonterminal` (POS tag o sintagma che sia) presente nella lista `translation_rules`. Se la ricerca ha successo, antepone tale oggetto al resto della frase.
 
