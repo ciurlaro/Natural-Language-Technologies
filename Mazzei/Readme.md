@@ -19,7 +19,7 @@
 L'esercizio consiste nell'implementazione di un semplice **traduttore transfer** **IT $\rightarrow$ IT**-**YO**, ovvero di un _sistema di traduzione_ che prenda in _input_ una frase scritta in italiano e che restituisca in _output_ la corrispondente traduzione in 'italiano-yoda', lingua fittizia parlata nell'universo cinematografico della saga di Guerre Stellari.
 
 
-La **parsificazione** è vincolata all'utilizzo dell'**_algoritmo CKY_**, algoritmo per _grammatiche fuori dal contesto_ (_CFG_) che sfrutta il metodo di **_programmazione dinamica_** e una strategia **_bottom-up_** per svolgere il _task_ con una _complessità nel caso peggiore_ di $\mathcal{O}\left(n^{3} \cdot|G|\right)$, dove $n$ è la _lunghezza_ della stringa da parsificare e $|G|$ la cardinalità della grammatica $G$.
+La **parsificazione** è vincolata all'utilizzo dell'**_algoritmo CKY_**, algoritmo per _grammatiche fuori dal contesto_ (_CFG_) che sfrutta il metodo di **_programmazione dinamica_** e una strategia **_bottom-up_** per svolgere il _task_ con una _complessità nel caso peggiore_ di  <img src="https://latex.codecogs.com/gif.latex?$\mathcal{O}\left(n^{3}&space;\cdot|G|\right)$"/>, dove <img src="https://latex.codecogs.com/gif.latex?$n$"/> è la _lunghezza_ della stringa da parsificare e <img src="https://latex.codecogs.com/gif.latex?|G|"/> la cardinalità della grammatica $G$.
 
 Di seguito sono elencati alcuni esempi di traduzioni che ci si aspetta che il traduttore sia in grado di eseguire correttamente:
 
@@ -31,32 +31,32 @@ Di seguito sono elencati alcuni esempi di traduzioni che ci si aspetta che il tr
     <th class="tg-0pky"><b>Output atteso</b></th>
   </tr>
   <tr>
-    <th class="tg-0pky">$(a)$</th>
+    <th class="tg-0pky"><img src="https://latex.codecogs.com/gif.latex?$(a)$"/></th>
     <th class="tg-0pky">Tu avrai novecento anni di età</th>
     <th class="tg-0pky">Novecento anni di età tu avrai</th>
   </tr>
   <tr>
-    <th class="tg-0pky">$(b)$</th>
+    <th class="tg-0pky"><img src="https://latex.codecogs.com/gif.latex?$(b)$"/></th>
     <th class="tg-0pky">Tu hai amici lì</th>
     <th class="tg-0pky">Amici hai tu lì</th>
   </tr>
   <tr>
-    <th class="tg-0pky">$(c)$</th>
+    <th class="tg-0pky"><img src="https://latex.codecogs.com/gif.latex?$(c)$"/></th>
     <th class="tg-0pky">Noi siamo illuminati</th>
     <th class="tg-0pky">Illuminati noi siamo</th>
   </tr>
   <tr>
-    <th class="tg-0pky">$(d)$</th>
+    <th class="tg-0pky"><img src="https://latex.codecogs.com/gif.latex?$(d)$"/></th>
     <th class="tg-0pky">Tu hai molto molto da apprendere ancora</th>
     <th class="tg-0pky">Molto da apprendere ancora tu hai</th>
   </tr>
   <tr>
-    <th class="tg-0pky">$(e)$</th>
+    <th class="tg-0pky"><img src="https://latex.codecogs.com/gif.latex?$(e)$"/></th>
     <th class="tg-0pky">Il futuro di questo ragazzo è nebuloso</th>
     <th class="tg-0pky">Nebuloso il futuro di questo ragazzo è</th>
   </tr>
   <tr>
-    <th class="tg-0pky">$(f)$</th>
+    <th class="tg-0pky"><img src="https://latex.codecogs.com/gif.latex?$(f)$"/></th>
     <th class="tg-0pky">Skywalker corre veloce</th>
     <th class="tg-0pky">Veloce Skywalker corre</th>
   </tr>
@@ -68,8 +68,8 @@ Yoda è un personaggio immaginario della saga fantascientifica di Guerre stellar
 I suoi **caratteristici schemi linguistici** sono stati oggetto di discussione in tipologia linguistica; gli accademici sintattici li hanno infatti associati ad un **ordine di sintassi realmente adottato da alcuni linguaggi naturali: l'ordine Oggetto-Soggetto-Verbo** (**OSV**).
 Quest'ultimo viene anche detto **XSV**, dove **X** rappresenta un qualsivoglia complemento, eventualmente anche non oggetto, che si coordini appropriatamente con il verbo.
 <hr>
-##### $A$ $long$ $time$ $ago$ $in$ $a$ $galaxy$ $far$ $far$ $away$ $...$ 
-![Alt text](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLYrmOHFvYMRgYBpwMyVffZHZ0Os33YNoxEiR9rzKDDuRNyYQY)
+<img src="https://latex.codecogs.com/gif.latex?\fn_cm&space;A\&space;long\&space;time\&space;ago\&space;in\&space;a\&space;galaxy\&space;far\&space;far\&space;away..."/>
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLYrmOHFvYMRgYBpwMyVffZHZ0Os33YNoxEiR9rzKDDuRNyYQY"/>
 <hr>
 Esempi di altre lingue che fanno uso di questo ordine sono le lingue _haida_ e _kotava_.
 
