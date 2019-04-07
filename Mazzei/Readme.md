@@ -19,7 +19,6 @@ La **parsificazione** è vincolata all'utilizzo dell'**_algoritmo CKY_**, algori
 
 Di seguito sono elencati alcuni esempi di traduzioni che ci si aspetta che il traduttore sia in grado di eseguire correttamente:
 
-
 <table class="tg">
   <tr>
     <th class="tg-0pky"></th>
@@ -73,15 +72,13 @@ Quest'ultimo viene anche detto **XSV**, dove **X** rappresenta un qualsivoglia c
 
 Esempi di altre lingue che fanno uso di questo ordine sono le lingue *haida* e *kotava*.
 
-### 1.2 Osservazioni
+### 1.2 Osservazioni preliminari
 Sebbene associato ad un _ordine OSV_, il linguaggio usato da Yoda **non ha un comportamento sempre riconducibile a uno schema fisso**. Ciò significa che una regola di traduzione potrebbe essere corretta per una o più sue citazioni, ma anche che potrebbe non esserlo per altre aventi la stessa struttura sintattica.
 
 È possibile constatare questa irregolarità anche tramite l'**osservazione degli esempi**:
 1. L'**anteposizione degli aggettivi e dei sintagmi aggettivali** avviene negli esempi <img src="https://latex.codecogs.com/gif.latex?$(a)$\&space;$(d)$\&space;$(e)$\&space;$(f)$"/>
 2. L'**anteposizione dei sintagmi avverbiali** avviene solo nell'esempio <img src="https://latex.codecogs.com/gif.latex?$(d)$"/> e non, per contro, in <img src="https://latex.codecogs.com/gif.latex?$(b)$"/>
 2. L'**inversione di pronome e verbo** è infine presente solamente nell'esempio <img src="https://latex.codecogs.com/gif.latex?$(b)$"/>
-
-Ciò è stato tenuto presente durante la _fase di progettazione_.
 
 <hr>
 
@@ -92,8 +89,30 @@ Ciò è stato tenuto presente durante la _fase di progettazione_.
 2. **Implementazione** di **CKY** che generi alberi sintattici avvalendosi di meccanismi di backtracing
 3. Manipolazione efficiente dei dati al fine di ottenere una **traduzione accurata dell'_input_**
 
+### 2.2 Grammatica
+Nella scrittura della grammatica sono state catturate solamente le **unità sintattiche** più significative della lingua italiana . 
 
-### 2.2 Architettura
+#### Regole grammaticali modellate:
+- Sintagmi _nominali_ (NP)
+- Sintagmi _verbali_ (VP)
+- Sintagmi _aggettivali_ (ADJP)
+- Sintagmi _avverbiali_ (ADVP)
+- Sintagmi _preposizionali_ (PP)
+
+#### Regole sintattiche modellate:
+- _Pronomi personali_ e _nomi propri_ (NP)
+- _Nomi_ non propri (NOUN)
+- _Pronomi_ non personali (PRON)
+- _Verbi_ non usati come ausiliari (VERB)
+- _Verbi_ usati come _ausiliari_ (AUX)
+- _Verbi_ composti usati con un _ausiliare_ (VBN)
+- _Articoli_ (DET)
+- _Avverbi_ (ADV)
+- _Preposizioni_ (ADP)
+- _Aggettivi_ (ADV)
+
+
+### 2.3 Architettura
 
 **Nltk** è la piattaforma di riferimento per l'elaborazione del linguaggio naturale _open source_ in _python_. 
 Tale piattaforma offre una _suite di librerie_ che mettono a disposizione classi e metodi per la gestione di alberi sintattici e grammatiche e si è perciò dimostrata una **solida scelta**.
@@ -106,7 +125,6 @@ Tale piattaforma offre una _suite di librerie_ che mettono a disposizione classi
     -  `translation_rules`  è la lista di `Nonterminal`; **il traduttore la utilizza per trasformare l'albero sintattico** in fase di traduzione
     
     
-    
 - `_logic_`, resposabile della _logica applicativa._ 
 
     - Composto da due funzioni, `cky_parsing` e `translate`, **determina le funzionalità dell'applicazione** eseguendo elaborazioni dettagliate.
@@ -115,7 +133,7 @@ Tale piattaforma offre una _suite di librerie_ che mettono a disposizione classi
 
 - `_main_`, responsabile dell'**avvio del programma**; richiama entrambi i moduli precedentemente descritti.
 
-### 2.2.1 Descrizione di `cky_parsing`
+#### 2.3.1 Descrizione di `cky_parsing`
 Implementa l'**algoritmo di parsificazione CKY**.
 - _input_: lista di parole `words`, Context-Free-Grammar `grammar` e parametro opzionale booleano `draw `.
 - _output_: albero sintattico le cui foglie sono componenti di `words` e il cui nodo padre è il POS tag che l'algoritmo ha associato loro
@@ -162,7 +180,7 @@ def cky_parsing(words: list, grammar: CFG, draw=False):
         return table[0, n-1][0] if len(table[0, n-1]) != 0 else Tree("Grammar error", []) 
 ```
 
-### 2.2.2 Descrizione di `translate`
+#### 2.3.2 Descrizione di `translate`
 Implementazione della **fase di traduzione** del programma.
 - _input_: albero sintattico `tree` della frase da tradurre, lista di non terminali `translation_rules` e parametro opzionale booleano `draw `.
 - _output_: manipolazione dell'albero `tree` di partenza; rappresenta la traduzione effettuata
