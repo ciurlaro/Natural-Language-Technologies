@@ -58,7 +58,9 @@ Di seguito sono elencati alcuni esempi di traduzioni che ci si aspetta che il tr
     
 </table>
 
-### 1.1 Il linguaggio di Yoda
+### Osservazioni preliminari
+
+#### Schemi linguistici di Yoda
 Yoda è un personaggio immaginario della saga fantascientifica di Guerre stellari. 
 
 I suoi **caratteristici schemi linguistici** sono stati oggetto di discussione in tipologia linguistica; gli accademici sintattici li hanno infatti associati ad un **ordine di sintassi realmente adottato da alcuni linguaggi naturali: l'ordine Oggetto-Soggetto-Verbo** (**OSV**).
@@ -72,7 +74,7 @@ Quest'ultimo viene anche detto **XSV**, dove **X** rappresenta un qualsivoglia c
 
 Esempi di altre lingue che fanno uso di questo ordine sono le lingue *haida* e *kotava*.
 
-### 1.2 Osservazioni preliminari
+### Regole per la traduzione
 Sebbene associato ad un _ordine OSV_, il linguaggio usato da Yoda **non ha un comportamento sempre riconducibile a uno schema fisso**. Ciò significa che una regola di traduzione potrebbe essere corretta per una o più sue citazioni, ma anche che potrebbe non esserlo per altre aventi la stessa struttura sintattica.
 
 È possibile constatare questa irregolarità anche tramite l'**osservazione degli esempi**:
