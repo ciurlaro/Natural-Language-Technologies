@@ -78,7 +78,9 @@ Sebbene associato ad un _ordine OSV_, il linguaggio usato da Yoda **non ha un co
 È possibile constatare questa irregolarità anche tramite l'**osservazione degli esempi**:
 1. L'**anteposizione degli aggettivi e dei sintagmi aggettivali** avviene negli esempi <img src="https://latex.codecogs.com/gif.latex?$(a)$\&space;$(d)$\&space;$(e)$\&space;$(f)$"/>
 2. L'**anteposizione dei sintagmi avverbiali** avviene solo nell'esempio <img src="https://latex.codecogs.com/gif.latex?$(d)$"/> e non, per contro, in <img src="https://latex.codecogs.com/gif.latex?$(b)$"/>
-2. L'**inversione di pronome e verbo** è infine presente solamente nell'esempio <img src="https://latex.codecogs.com/gif.latex?$(b)$"/>
+3. L'**inversione di pronome e verbo** è infine presente solamente nell'esempio <img src="https://latex.codecogs.com/gif.latex?$(b)$"/>
+
+Notare la duplice irregolarità di <img src="https://latex.codecogs.com/gif.latex?$(b)$"/>.
 
 <hr>
 
@@ -206,6 +208,8 @@ def translate(tree: Tree, translation_rules: list, draw=False):
     return tree
 ```
 
+<hr>
+
 ## 3. Conclusione
 
 ### 3.1 Considerazioni
@@ -214,7 +218,9 @@ Il programma si comporta bene nella maggior parte dei casi, ma non in tutti.
 
 Le incongruenze presenti all'interno delle citazioni stesse non permettono infatti di stabilire delle regole di traduzione generali al punto che il traduttore si comporti bene per tutti i possibili _input_.
 
-Con riferimento agli esempi, il traduttore ottiene sempre l'esatto **output atteso**, tranne che nel <img src="https://latex.codecogs.com/gif.latex?$(b)$"/>. Che però, come osservato precedentemente, si comporta in modo anomalo per ben 2 delle 3 regole catturate nel linguaggio di Yoda e pertanto richiederebbero delle _regole ad hoc_.
+Con riferimento agli esempi, il traduttore ottiene sempre l'esatto **output atteso**, tranne che nel <img src="https://latex.codecogs.com/gif.latex?$(b)$"/>. 
+
+Che però, come osservato precedentemente, si comporta in modo anomalo per ben 2 delle 3 regole catturate nel linguaggio di Yoda e pertanto richiederebbero delle _regole ad hoc_.
 
 A supporto del fatto che sia un caso specifico problematico da generalizzare, riporto di seguito la traduzione del <a href="http://www.yodaspeak.co.uk/index.php">Yoda speak generator</a>: <br>
 
