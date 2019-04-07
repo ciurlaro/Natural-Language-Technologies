@@ -90,26 +90,26 @@ Sebbene associato ad un _ordine OSV_, il linguaggio usato da Yoda **non ha un co
 3. Manipolazione efficiente dei dati al fine di ottenere una **traduzione accurata dell'_input_**
 
 ### 2.2 Grammatica
-Nella scrittura della grammatica sono state catturate solamente le **unità sintattiche** più significative della lingua italiana . 
+Nella scrittura della grammatica sono state catturate solamente alcune tra le più significative **strutture** della lingua italiana . 
 
-#### Regole grammaticali modellate:
-- Sintagmi _nominali_ (NP)
-- Sintagmi _verbali_ (VP)
-- Sintagmi _aggettivali_ (ADJP)
-- Sintagmi _avverbiali_ (ADVP)
-- Sintagmi _preposizionali_ (PP)
+#### Sintagmi (regole grammaticali) modellati:
+- Sintagmi _nominali_ (**NP**)
+- Sintagmi _verbali_ (**VP**)
+- Sintagmi _aggettivali_ (**ADJP**)
+- Sintagmi _avverbiali_ (**ADVP**)
+- Sintagmi _preposizionali_ (**PP**)
 
-#### Regole sintattiche modellate:
-- _Pronomi personali_ e _nomi propri_ (NP)
-- _Nomi_ non propri (NOUN)
-- _Pronomi_ non personali (PRON)
-- _Verbi_ non usati come ausiliari (VERB)
-- _Verbi_ usati come _ausiliari_ (AUX)
-- _Verbi_ composti usati con un _ausiliare_ (VBN)
-- _Articoli_ (DET)
-- _Avverbi_ (ADV)
-- _Preposizioni_ (ADP)
-- _Aggettivi_ (ADV)
+#### Unità sintattiche modellate:
+- _Pronomi personali_ e _nomi propri_ (**NP**)
+- _Nomi_ non propri (**NOUN**)
+- _Pronomi_ non personali (**PRON**)
+- _Verbi_ non usati come ausiliari (**VERB**)
+- _Verbi_ usati come _ausiliari_ (**AUX**)
+- _Verbi_ composti usati con un _ausiliare_ (**VBN**)
+- _Articoli_ (**DET**)
+- _Avverbi_ (**ADV**)
+- _Preposizioni_ (**ADP**)
+- _Aggettivi_ (**ADV**)
 
 
 ### 2.3 Architettura
