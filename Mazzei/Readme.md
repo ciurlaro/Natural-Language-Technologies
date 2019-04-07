@@ -218,7 +218,7 @@ Con riferimento agli esempi, il traduttore ottiene sempre l'esatto **output atte
 
 A supporto del fatto che sia un caso specifico problematico da generalizzare, riporto di seguito la traduzione del <a href="http://www.yodaspeak.co.uk/index.php">Yoda speak generator</a>: <br>
 
-<img src="https://i.ibb.co/dtpL47B/yoda.png"/>
+<p align="center"><img src="https://i.ibb.co/dtpL47B/yoda.png"/></p>
 
 La cui traduzione **coincide esattamente** con quella ottenuta tramite il sistema realizzato.
 
