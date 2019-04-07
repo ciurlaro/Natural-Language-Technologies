@@ -22,7 +22,7 @@ def cky_parsing(words: list, grammar: CFG, draw=False):
                                                                 grammar.productions()))))
                     table[i, j] = rule if table[i, j] is None else rule + table[i, j]
 
-        if draw: table[0, n - 1][0].draw()
+        if draw and len(table[0, n - 1]) != 0: table[0, n - 1][0].draw()
         return table[0, n-1][0] if len(table[0, n-1]) != 0 else Tree("Grammar error", [])
 
 
