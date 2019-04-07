@@ -61,7 +61,9 @@ Di seguito sono elencati alcuni esempi di traduzioni che ci si aspetta che il tr
 
 ### 1.1 Il linguaggio di Yoda
 Yoda è un personaggio immaginario della saga fantascientifica di Guerre stellari. 
+
 I suoi **caratteristici schemi linguistici** sono stati oggetto di discussione in tipologia linguistica; gli accademici sintattici li hanno infatti associati ad un **ordine di sintassi realmente adottato da alcuni linguaggi naturali: l'ordine Oggetto-Soggetto-Verbo** (**OSV**).
+
 Quest'ultimo viene anche detto **XSV**, dove **X** rappresenta un qualsivoglia complemento, eventualmente anche non oggetto, che si coordini appropriatamente con il verbo.
 <hr>
 <img src="https://latex.codecogs.com/gif.latex?\fn_cm&space;A\&space;long\&space;time\&space;ago\&space;in\&space;a\&space;galaxy\&space;far\&space;far\&space;away..."/>
@@ -126,14 +128,14 @@ Questa implementazione **determina se una sequenza di parole <img src="https://l
 
 - se la **componente** di `table` <img src="https://latex.codecogs.com/gif.latex?[0,\&space;n-1]"/> è una **lista vuota**, allora vuol dire che **non esiste un albero sintattico** di <img src="https://latex.codecogs.com/gif.latex?$S$"/> in accordo a <img src="https://latex.codecogs.com/gif.latex?$G$"/>. 
 
-In tal caso l'**algoritmo restituisce un albero la cui radice presenta l'etichetta "`Grammar error`"**.
+    In tal caso l'**algoritmo restituisce un albero la cui radice presenta l'etichetta "`Grammar error`"**.
 
 
 - se altrimenti tale **componente** è una **lista non vuota**, allora vuol dire che <img src="https://latex.codecogs.com/gif.latex?$G$"/> copre <img src="https://latex.codecogs.com/gif.latex?$S$"/> ed inoltre
     - se contiene **un solo elemento**, l'**interpretazione** di <img src="https://latex.codecogs.com/gif.latex?$S$"/> è **univoca**
     - se viceversa contiene **più di un elemento**, vi sono più interpretazioni di <img src="https://latex.codecogs.com/gif.latex?$S$"/> e quindi vi è **ambiguità**
 
-In tal caso l'**algoritmo restituisce il primo albero** presente nella lista, ignorando così l'ambiguità. <br> Se `draw` ha valore **True**, allora tale albero viene anche disegnato a schermo.
+    In tal caso l'**algoritmo restituisce il primo albero** presente nella lista, ignorando così l'ambiguità. <br> Se `draw` ha valore **True**, allora tale albero viene anche disegnato a schermo.
 
 
 ```python
