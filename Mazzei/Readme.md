@@ -169,7 +169,8 @@ Implementazione della **fase di traduzione** del programma.
 
 Questa funzione effettua in `tree` una **ricerca in profondità in preordine** di un oggetto di classe `Nonterminal` (POS tag o sintagma che sia) presente nella lista `translation_rules`. Se la ricerca ha successo, antepone tale oggetto al resto della frase.
 
- <br> Se `draw` ha valore **True**, allora l'albero così manipolato viene anche disegnato a schermo.<br> La **funzione restituisce l'albero manipolato**, ovvero quello su cui è stata effettuata la traduzione e la cui radice presenta l'etichetta "`Translation`".
+ Se `draw` ha valore **True**, allora l'albero così manipolato viene anche disegnato a schermo.
+ La **funzione restituisce l'albero manipolato**, ovvero quello su cui è stata effettuata la traduzione e la cui radice presenta l'etichetta "`Translation`".
 
 
 ```python
