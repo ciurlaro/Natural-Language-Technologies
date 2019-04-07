@@ -137,7 +137,7 @@ Tale piattaforma offre una _suite di librerie_ che mettono a disposizione classi
 #### 2.3.1 Descrizione di `cky_parsing`
 Implementa l'**algoritmo di parsificazione CKY**.
 - _input_: lista di parole `words`, Context-Free-Grammar `grammar` e parametro opzionale booleano `draw `.
-- _output_: albero sintattico le cui foglie sono componenti di `words` e il cui nodo padre è il POS tag che l'algoritmo ha associato loro
+- _output_: albero sintattico le cui foglie sono componenti di `words` a cui l'algoritmo associa un POS tag
 <table class="tg" align="left">
 <tr> <th class="tg-0pky"> Il <b><i>POS tag</i></b> è il mezzo con cui è possibile effettuare elaborazione del linguaggio naturale. <br> Consiste in una sequenza di caratteri che <b>identifica</b> un insieme elementi sintattici simili tra loro, e <b>distingue</b> quelli che invece non lo sono. </th> </tr> </table>
 
