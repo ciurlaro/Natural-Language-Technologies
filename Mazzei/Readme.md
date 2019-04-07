@@ -130,7 +130,6 @@ Tale piattaforma offre una _suite di librerie_ che mettono a disposizione classi
     - Composto da due funzioni, `cky_parsing` e `translate`, **determina le funzionalità dell'applicazione** eseguendo elaborazioni dettagliate.
     
 
-
 - `_main_`, responsabile dell'**avvio del programma**; richiama entrambi i moduli precedentemente descritti.
 
 #### 2.3.1 Descrizione di `cky_parsing`
@@ -206,3 +205,23 @@ def translate(tree: Tree, translation_rules: list, draw=False):
 
     return tree
 ```
+
+## 3. Conclusione
+
+### 3.1 Considerazioni
+
+Il programma si comporta bene nella maggior parte dei casi, ma non in tutti.
+
+Le incongruenze presenti all'interno delle citazioni stesse non permettono infatti di stabilire delle regole di traduzione generali al punto che il traduttore si comporti bene per tutti i possibili _input_.
+
+Con riferimento agli esempi, il traduttore ottiene sempre l'esatto **output atteso**, tranne che nel <img src="https://latex.codecogs.com/gif.latex?$(b)$"/>. Che però, come osservato precedentemente, si comporta in modo anomalo per ben 2 delle 3 regole catturate nel linguaggio di Yoda e pertanto richiederebbero delle _regole ad hoc_.
+
+A supporto del fatto che sia un caso specifico problematico da generalizzare, riporto di seguito la traduzione del <a href="http://www.yodaspeak.co.uk/index.php">Yoda speak generator</a>: <br>
+
+<img src="https://i.ibb.co/dtpL47B/yoda.png"/>
+
+La cui traduzione **coincide esattamente** con quella ottenuta tramite il sistema realizzato.
+
+#### Esempio di traduzione
+<img src="https://i.ibb.co/N9rrNQG/yoda.png"/> <img src="https://latex.codecogs.com/gif.latex?$\Rightarrow$"/> <img src="https://i.ibb.co/F7Hw4VS/yoda.png"/>
+
