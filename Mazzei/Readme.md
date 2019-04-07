@@ -222,6 +222,7 @@ A supporto del fatto che sia un caso specifico problematico da generalizzare, ri
 
 La cui traduzione **coincide esattamente** con quella ottenuta tramite il sistema realizzato.
 
-#### Esempio di traduzione
-<img src="https://i.ibb.co/N9rrNQG/yoda.png"/> <img src="https://latex.codecogs.com/gif.latex?$\Rightarrow$"/> <img src="https://i.ibb.co/F7Hw4VS/yoda.png"/>
+### 3.2 Esempi di traduzione
+<img src="https://i.ibb.co/N9rrNQG/yoda.png"/> <img src="https://latex.codecogs.com/gif.latex?$\Rightarrow$"/> <img src="https://i.ibb.co/F7Hw4VS/yoda.png"/> <br>
 
+<img src="https://i.ibb.co/gD5Cw1p/yoda.png"/> <img src="https://latex.codecogs.com/gif.latex?$\Rightarrow$"/> <img src="https://i.ibb.co/VMcb6gc/yoda.png"/> <br>
