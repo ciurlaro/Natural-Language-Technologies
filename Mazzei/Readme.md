@@ -1,4 +1,4 @@
-# Elaborazione automatica del linguaggio naturale <br> - Esercizio #2     [2019/2020]
+# Elaborazione automatica del linguaggio naturale <br> - Esercizio #2     [2018/2019]
 
 <table class="tg" align="right">
   <tr>
