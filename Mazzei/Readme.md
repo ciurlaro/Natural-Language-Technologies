@@ -74,7 +74,7 @@ Quest'ultimo viene anche detto **XSV**, dove **X** rappresenta un qualsivoglia c
 
 Esempi di altre lingue che fanno uso di questo ordine sono le lingue *haida* e *kotava*.
 
-### Regole per la traduzione
+#### Regole per la traduzione
 Sebbene associato ad un _ordine OSV_, il linguaggio usato da Yoda **non ha un comportamento sempre riconducibile a uno schema fisso**. Ciò significa che una regola di traduzione potrebbe essere corretta per una o più sue citazioni, ma anche che potrebbe non esserlo per altre aventi la stessa struttura sintattica.
 
 È possibile constatare questa irregolarità anche tramite l'**osservazione degli esempi**:
@@ -118,8 +118,10 @@ Nella scrittura della grammatica sono state catturate solamente alcune tra le pi
 
 ### 2.3 Architettura
 
-**Nltk** è la piattaforma di riferimento per l'elaborazione del linguaggio naturale _open source_ in _python_. 
-Tale piattaforma offre una _suite di librerie_ che mettono a disposizione classi e metodi per la gestione di alberi sintattici e grammatiche e si è perciò dimostrata una **solida scelta**.
+#### Piattaforma
+**_Nltk_** è una _suite di librerie_ che mette a disposizione classi e metodi per la gestione di alberi sintattici e grammatiche.
+
+Scritta in in **_python_**, è il punto di riferimento per l'elaborazione del linguaggio naturale _open source_ e si è perciò dimostrata una **solida scelta**.
 
 #### Moduli:
 - `_init_`, responsabile dell'inizializzazione dei **dati di configurazione**:    
@@ -220,9 +222,7 @@ Il programma si comporta bene nella maggior parte dei casi, ma non in tutti.
 
 Le incongruenze presenti all'interno delle citazioni stesse non permettono infatti di stabilire delle regole di traduzione generali al punto che il traduttore si comporti bene per tutti i possibili _input_.
 
-Con riferimento agli esempi, il traduttore ottiene sempre l'esatto **output atteso**, tranne che nel <img src="https://latex.codecogs.com/gif.latex?$(b)$"/>. 
-
-Che però, come osservato precedentemente, si comporta in modo anomalo per ben 2 delle 3 regole catturate nel linguaggio di Yoda e pertanto richiederebbero delle _regole ad hoc_.
+Con riferimento agli esempi, il traduttore ottiene sempre l'esatto **output atteso**, tranne che nel <img src="https://latex.codecogs.com/gif.latex?$(b)$"/>; che però, come osservato precedentemente, si comporta in modo anomalo per ben 2 delle 3 regole catturate per la traduzione nel linguaggio di Yoda e pertanto richiederebbe delle _regole ad hoc_.
 
 A supporto del fatto che sia un caso specifico problematico da generalizzare, riporto di seguito la traduzione del <a href="http://www.yodaspeak.co.uk/index.php">Yoda speak generator</a>: <br>
 
@@ -231,6 +231,7 @@ A supporto del fatto che sia un caso specifico problematico da generalizzare, ri
 La cui traduzione **coincide esattamente** con quella ottenuta tramite il sistema realizzato.
 
 ### 3.2 Esempi di traduzione
+
 <img src="https://i.ibb.co/N9rrNQG/yoda.png"/> <img src="https://latex.codecogs.com/gif.latex?$\Rightarrow$"/> <img src="https://i.ibb.co/F7Hw4VS/yoda.png"/> <br>
 
 <img src="https://i.ibb.co/gD5Cw1p/yoda.png"/> <img src="https://latex.codecogs.com/gif.latex?$\Rightarrow$"/> <img src="https://i.ibb.co/VMcb6gc/yoda.png"/> <br>
