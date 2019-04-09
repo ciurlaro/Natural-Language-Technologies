@@ -113,7 +113,7 @@ Nella scrittura della grammatica sono state catturate solamente alcune tra le pi
 - _Articoli_ (**DET**)
 - _Avverbi_ (**ADV**)
 - _Preposizioni_ (**ADP**)
-- _Aggettivi_ (**ADV**)
+- _Aggettivi_ (**ADJ**)
 
 
 ### 2.3 Architettura
