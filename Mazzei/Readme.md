@@ -58,11 +58,10 @@ Di seguito sono elencati alcuni esempi di traduzioni che ci si aspetta che il tr
     
 </table>
 
-### Osservazioni preliminari
+### 1.1 Osservazioni preliminari
 
-#### Schemi linguistici di Yoda
+#### 1.1.1 Schemi linguistici di Yoda
 Yoda è un personaggio immaginario della saga fantascientifica di Guerre stellari. 
-
 I suoi **caratteristici schemi linguistici** sono stati oggetto di discussione in tipologia linguistica; gli accademici sintattici li hanno infatti associati ad un **ordine di sintassi realmente adottato da alcuni linguaggi naturali: l'ordine Oggetto-Soggetto-Verbo** (**OSV**).
 
 Quest'ultimo viene anche detto **XSV**, dove **X** rappresenta un qualsivoglia complemento, eventualmente anche non oggetto, che si coordini appropriatamente con il verbo.
@@ -74,13 +73,18 @@ Quest'ultimo viene anche detto **XSV**, dove **X** rappresenta un qualsivoglia c
 
 Esempi di altre lingue che fanno uso di questo ordine sono le lingue *haida* e *kotava*.
 
-#### Regole per la traduzione
+#### 1.1.2 Regole per la traduzione
 Sebbene associato ad un _ordine OSV_, il linguaggio usato da Yoda **non ha un comportamento sempre riconducibile a uno schema fisso**. Ciò significa che una regola di traduzione potrebbe essere corretta per una o più sue citazioni, ma anche che potrebbe non esserlo per altre aventi la stessa struttura sintattica.
 
 È possibile constatare questa irregolarità anche tramite l'**osservazione degli esempi**:
 1. L'**anteposizione degli aggettivi e dei sintagmi aggettivali** avviene negli esempi <img src="https://latex.codecogs.com/gif.latex?$(a)$\&space;$(d)$\&space;$(e)$\&space;$(f)$"/>
-2. L'**anteposizione dei sintagmi avverbiali** avviene solo nell'esempio <img src="https://latex.codecogs.com/gif.latex?$(d)$"/> e non, per contro, in <img src="https://latex.codecogs.com/gif.latex?$(b)$"/>
+2. L'**anteposizione degli avverbi e dei sintagmi avverbiali** avviene solo nell'esempio <img src="https://latex.codecogs.com/gif.latex?$(d)$"/> e non, per contro, in <img src="https://latex.codecogs.com/gif.latex?$(b)$"/>
 3. L'**inversione di pronome e verbo** è infine presente solamente nell'esempio <img src="https://latex.codecogs.com/gif.latex?$(b)$"/>
+
+Ciò è stato tenuto presente durante la _fase di progettazione_.
+
+**Osservazione:** l'esempio $(f)$ presenta un errore grammaticale. `veloce` infatti è un aggettivo che rende la frase, che per essere corretta necessiterebbe di un avverbio, **non grammaticale**. 
+Nell'implementazione tale frase è stata corretta sostituendo `velocemente` a `veloce`.
 
 Notare la duplice irregolarità di <img src="https://latex.codecogs.com/gif.latex?$(b)$"/>.
 
@@ -136,7 +140,12 @@ Scritta in in **_python_**, è il punto di riferimento per l'elaborazione del li
     - Composto da due funzioni, `cky_parsing` e `translate`, **determina le funzionalità dell'applicazione** eseguendo elaborazioni dettagliate.
     
 
-- `_main_`, responsabile dell'**avvio del programma**; richiama entrambi i moduli precedentemente descritti.
+- `_main_`, responsabile dell'**_avvio del programma_**.
+
+    - Richiama entrambi i moduli precedentemente descritti. 
+
+<hr>
+
 
 #### 2.3.1 Descrizione di `cky_parsing`
 Implementa l'**algoritmo di parsificazione CKY**.
@@ -151,7 +160,13 @@ Questa implementazione **determina se una sequenza di parole <img src="https://l
 
 - se la **componente** di `table` <img src="https://latex.codecogs.com/gif.latex?[0,\&space;n-1]"/> è una **lista vuota**, allora vuol dire che **non esiste un albero sintattico** di <img src="https://latex.codecogs.com/gif.latex?$S$"/> in accordo a <img src="https://latex.codecogs.com/gif.latex?$G$"/>. 
 
-    In tal caso l'**algoritmo restituisce un albero la cui radice presenta l'etichetta "`Grammar error`"**.
+    In tal caso l'**algoritmo restituisce un albero la cui radice presenta l'etichetta "`Grammar error`"**. 
+    
+    **Osservazione:** ciò avviene anche se `grammar` non è espressa in **_Chomsky Normal Form_**
+    
+    <table class="tg" align="left">
+    <tr> <th class="tg-0pky"> <b><i>Chomsky Normal Form:</i></b> forma normale in cui l’<i>RHS</i> di ogni regola possiede due simboli
+    non terminali oppure un singolo simbolo terminale. </th> </tr> </table>
 
 
 - se altrimenti tale **componente** è una **lista non vuota**, allora vuol dire che <img src="https://latex.codecogs.com/gif.latex?$G$"/> copre <img src="https://latex.codecogs.com/gif.latex?$S$"/> ed inoltre
@@ -192,25 +207,42 @@ Implementazione della **fase di traduzione** del programma.
 
 Questa funzione effettua in `tree` una **ricerca in profondità in preordine** di un oggetto di classe `Nonterminal` (POS tag o sintagma che sia) presente nella lista `translation_rules`. Se la ricerca ha successo, antepone tale oggetto al resto della frase.
 
- Se `draw` ha valore **True**, allora l'albero così manipolato viene anche disegnato a schermo.
- La **funzione restituisce l'albero manipolato**, ovvero quello su cui è stata effettuata la traduzione e la cui radice presenta l'etichetta "`Translation`".
+Se `draw` ha valore **True**, allora l'albero così manipolato viene anche disegnato a schermo. La **funzione restituisce l'albero manipolato**, ovvero quello su cui è stata effettuata la traduzione, la cui radice presenta l'etichetta "`S'`".
+
+ 
+ **Osservazione:** l'albero in _output_ è stato volutamente mantenuto binario.
 
 
 ```python
 def translate(tree: Tree, translation_rules: list, draw=False):
-    put_back = list(filter(lambda i: isinstance(tree[i], Tree)
+    put_left = list(filter(lambda i: isinstance(tree[i], Tree)
                                           and tree[i].label() in translation_rules
-                                          and not 'put_back' in locals(),
+                                          and not 'put_left' in locals(),
                                 tree.treepositions()))[0] if len(tree) != 0 else []
 
-    if len(put_back) != 0:
-        prefix = tree.__getitem__(put_back)
-        tree.__delitem__(put_back)
-        tree = Tree(Nonterminal('Translation'), [prefix, tree[0], tree[1]])
+    if len(put_left) != 0:
+        prefix = tree.__getitem__(put_left)
+        tree.__delitem__(put_left)
+        tree = Tree(Nonterminal("S'"), [prefix, tree])
         if draw: tree.draw()
 
     return tree
 ```
+<hr>
+
+### 2.4 Note sull'implementazione
+Il sistema fa ampio uso di **funzioni anonime** (o **funzioni lambda**), caratterizzate dall'assenza di un identificatore. Tali funzioni godono della caratteristica di essere **componibili**, ossia autonome e senza stato. 
+Ciò rende possibile la **composizione di funzioni**, ovvero l'utilizzo di funzioni come parametri di altre funzioni.
+
+Lo stile di programmazione che fa uso di questa caratteristica viene chiamato **programmazione funzionale** ed è basato su un paradigma di tipo _dichiarativo_ anziché _procedurale_; **_python_** lo supporta.
+
+
+**Vantaggi principali di questo approccio:** 
+- _Maggiore facilità di lettura e manutenibilità_, ogni funzione è progettata per realizzare un'attività specifica con gli argomenti assegnati. La funzione non si basa su alcuno stato esterno.
+- _Sviluppo iterativo più semplice_, in quanto è più agevole eseguire il refactoring del codice ed è più facile implementare le modifiche di progettazione.
+- _Procedure più semplici di test e debug_, le funzioni anonime possono essere più facilmente testate in isolamento ed è possibile scrivere codice di test che le chiama con valori tipici, casi limite validi e casi limite non validi.
+- <a href="https://leadsift.com/loop-map-list-comprehension/"><i>Migliori prestazioni</i></a>
+
 
 <hr>
 
@@ -224,14 +256,29 @@ Le incongruenze presenti all'interno delle citazioni stesse non permettono infat
 
 Con riferimento agli esempi, il traduttore ottiene sempre l'esatto **output atteso**, tranne che nel <img src="https://latex.codecogs.com/gif.latex?$(b)$"/>; che però, come osservato precedentemente, si comporta in modo anomalo per ben 2 delle 3 regole catturate per la traduzione nel linguaggio di Yoda e pertanto richiederebbe delle _regole ad hoc_.
 
-A supporto del fatto che sia un caso specifico problematico da generalizzare, riporto di seguito la traduzione del <a href="http://www.yodaspeak.co.uk/index.php">Yoda speak generator</a>: <br>
+Viene di seguito riportata la traduzione del <a href="http://www.yodaspeak.co.uk/index.php">Yoda speak generator</a>: <br>
 
 <p align="center"><img src="https://i.ibb.co/dtpL47B/yoda.png"/></p>
 
-La cui traduzione **coincide esattamente** con quella ottenuta tramite il sistema realizzato.
+<br>
+
+La quale **non coincide** con l'output atteso e prova la duplice problematicità sia dell'esempio in questione che della generalizzazione della traduzione nel linguaggio Yoda.
+
+
+#### 3.1.2 Paradigma di traduzione automatica adottato
+
+Il paradigma di traduzione adottato dal sistema prende il nome di paradigma **transfer**. 
+
+Per effettuare cioè la traduzione effettua le seguenti iterazioni:
+- _**Analizza**_ la struttura sintattica dell'_input_, cioè la **parsifica** e ne **valuta i _POS tag_**; nel sistema implementato ciò corrisponde all'esecuzione dell'_algoritmo CKY_
+- _**Trasferisce**_ la struttura analizzata, ovvero effettua una prima **traduzione**; nel sistema implementato ciò non è necessario in quanto le parole non cambiano tra i due idiomi
+- _**Sintetizza**_ la frase in _output_ attraverso l'utilizzo di regole; nel sistema implementato tali regole decidono l'**ordine** dei sintagmi 
+
+
 
 ### 3.2 Esempi di traduzione
 
-<img src="https://i.ibb.co/N9rrNQG/yoda.png"/> <img src="https://latex.codecogs.com/gif.latex?$\Rightarrow$"/> <img src="https://i.ibb.co/F7Hw4VS/yoda.png"/> <br>
-
-<img src="https://i.ibb.co/gD5Cw1p/yoda.png"/> <img src="https://latex.codecogs.com/gif.latex?$\Rightarrow$"/> <img src="https://i.ibb.co/VMcb6gc/yoda.png"/> <br>
+<p><b>Input</b></p> | <p><b>Output reale</b></p>
+- | - 
+<img src="https://i.ibb.co/9q7KQ48/S.png"/> | <img src="https://i.ibb.co/gF5YLSJ/S.png"/>
+<img src="https://i.ibb.co/qWqKCYN/S.png"/> | <img src="https://i.ibb.co/ns3K8mJ/S.png"/>
