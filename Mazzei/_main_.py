@@ -9,4 +9,3 @@ with open(data_file, encoding='utf-8') as grammar_file:
 for sentence in sentences:
     tree = cky_parsing(sentence.split(), grammar, draw=True)
     translate(tree, translation_rules, draw=True)
-

@@ -27,15 +27,15 @@ def cky_parsing(words: list, grammar: CFG, draw=False):
 
 
 def translate(tree: Tree, translation_rules: list, draw=False):
-    put_back = list(filter(lambda i: isinstance(tree[i], Tree)
+    put_left = list(filter(lambda i: isinstance(tree[i], Tree)
                                           and tree[i].label() in translation_rules
-                                          and not 'put_back' in locals(),
+                                          and not 'put_left' in locals(),
                                 tree.treepositions()))[0] if len(tree) != 0 else []
 
-    if len(put_back) != 0:
-        prefix = tree.__getitem__(put_back)
-        tree.__delitem__(put_back)
-        tree = Tree(Nonterminal('Translation'), [prefix, tree[0], tree[1]])
+    if len(put_left) != 0:
+        prefix = tree.__getitem__(put_left)
+        tree.__delitem__(put_left)
+        tree = Tree(Nonterminal("S'"), [prefix, tree])
         if draw: tree.draw()
 
     return tree
