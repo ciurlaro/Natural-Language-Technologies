@@ -278,7 +278,7 @@ Per effettuare cioè la traduzione effettua le seguenti iterazioni:
 
 ### 3.2 Esempi di traduzione
 
-<p><b>Input</b></p> | <p><b>Output reale</b></p>
-- | - 
-<img src="https://i.ibb.co/9q7KQ48/S.png"/> | <img src="https://i.ibb.co/gF5YLSJ/S.png"/>
-<img src="https://i.ibb.co/qWqKCYN/S.png"/> | <img src="https://i.ibb.co/ns3K8mJ/S.png"/>
+| <p><b>Input</b></p> | <p><b>Output reale</b></p> |
+| -------- | -------- |
+| <img src="https://i.ibb.co/9q7KQ48/S.png"/> | <img src="https://i.ibb.co/gF5YLSJ/S.png"/> |
+| <img src="https://i.ibb.co/qWqKCYN/S.png"/> | <img src="https://i.ibb.co/ns3K8mJ/S.png"/> |
