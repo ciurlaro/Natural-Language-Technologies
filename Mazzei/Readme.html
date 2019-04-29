@@ -13089,7 +13089,7 @@ div#notebook {
 
 <!-- Loading mathjax macro -->
 <!-- Load mathjax -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_HTML"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML"></script>
     <!-- MathJax configuration -->
     <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
@@ -13166,7 +13166,7 @@ div.text_cell_render h3 {
 <hr>
 
 <h2 id="1.-Traccia">1. Traccia<a class="anchor-link" href="#1.-Traccia">&#182;</a></h2><p>L'esercizio consiste nell'implementazione di un semplice <strong>traduttore transfer</strong> <strong>IT $\rightarrow$ IT</strong>-<strong>YO</strong>, ovvero di un <em>sistema di traduzione</em> che prenda in <em>input</em> una frase scritta in italiano e che restituisca in <em>output</em> la corrispondente traduzione in 'italiano-yoda', lingua fittizia parlata nell'universo cinematografico della saga di Guerre Stellari.</p>
-<p>La <strong>parsificazione</strong> è vincolata all'utilizzo dell'<strong><em>algoritmo CKY</em></strong>, algoritmo per <em>grammatiche fuori dal contesto</em> (<em>CFG</em>) che sfrutta il metodo di <strong><em>programmazione dinamica</em></strong> e una strategia <strong><em>bottom-up</em></strong> per svolgere il <em>task</em> con una <em>complessità nel caso peggiore</em> di $\mathcal{O}\left(n^{3} \cdot|G|\right)$, dove $n$ è la <em>lunghezza</em> della stringa da parsificare e $|G|$ la cardinalità della grammatica $G$.</p>
+<p>La <strong>parsificazione</strong> è vincolata all'utilizzo dell'<strong><em>algoritmo CKY</em></strong>, algoritmo per <em>grammatiche libere dal contesto</em> (<em>CFG</em>) che sfrutta il metodo di <strong><em>programmazione dinamica</em></strong> e una strategia <strong><em>bottom-up</em></strong> per svolgere il <em>task</em> con una <em>complessità nel caso peggiore</em> di $\mathcal{O}\left(n^{3} \cdot|G|\right)$, dove $n$ è la <em>lunghezza</em> della stringa da parsificare e $|G|$ la cardinalità della grammatica $G$.</p>
 
 </div>
 </div>
@@ -13238,10 +13238,13 @@ I suoi <strong>caratteristici schemi linguistici</strong> sono stati oggetto di 
 <p>È possibile constatare questa irregolarità anche tramite l'<strong>osservazione degli esempi</strong>:</p>
 <ol>
 <li>L'<strong>anteposizione degli aggettivi e dei sintagmi aggettivali</strong> avviene negli esempi in cui compaiono $(a)$ $(d)$ $(e)$ $(f)$</li>
-<li>L'<strong>anteposizione dei sintagmi avverbiali</strong> invece avviene sono nell'esempio $(d)$ e non in $(b)$</li>
+<li>L'<strong>anteposizione degli avverbi e dei sintagmi avverbiali</strong> avviene sono nell'esempio $(d)$ e non in $(b)$</li>
 <li>L'<strong>inversione di pronome e verbo</strong> è infine presente solo nell'esempio $(b)$</li>
 </ol>
 <p>Ciò è stato tenuto presente durante la <em>fase di progettazione</em>.</p>
+<p><strong>Osservazione:</strong> l'esempio $(f)$ presenta un errore grammaticale. <code>veloce</code> infatti è un aggettivo che rende la frase, che per essere corretta necessiterebbe di un avverbio, <strong>non grammaticale</strong>. 
+Nell'implementazione tale frase è stata corretta sostituendo <code>velocemente</code> a <code>veloce</code>.</p>
+<p>Notare la duplice irregolarità di $(b)$.</p>
 
 </div>
 </div>
@@ -13249,9 +13252,11 @@ I suoi <strong>caratteristici schemi linguistici</strong> sono stati oggetto di 
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
 <h2 id="2.-Realizzazione">2. Realizzazione<a class="anchor-link" href="#2.-Realizzazione">&#182;</a></h2><h3 id="2.1-Requisiti:">2.1 Requisiti:<a class="anchor-link" href="#2.1-Requisiti:">&#182;</a></h3><ol>
 <li><strong>Acquisizione di una grammatica</strong> sufficientemente espressiva da coprire almeno il dominio di esempi precedentemente enumerati</li>
-<li><strong>Implementazione</strong> di <strong>CKY</strong> che generi alberi sintattici avvalendosi di meccanismi di backtracing</li>
+<li><strong>Implementazione</strong> di <strong>CKY</strong> che generi alberi sintattici avvalendosi di meccanismi di <em>backtracing</em></li>
 <li>Manipolazione efficiente dei dati al fine di ottenere una <strong>traduzione accurata dell'<em>input</em></strong></li>
 </ol>
 
@@ -13261,6 +13266,8 @@ I suoi <strong>caratteristici schemi linguistici</strong> sono stati oggetto di 
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
 <h3 id="2.2-Grammatica">2.2 Grammatica<a class="anchor-link" href="#2.2-Grammatica">&#182;</a></h3><p>Nella scrittura della grammatica sono state catturate solamente alcune tra le più significative <strong>strutture</strong> della lingua italiana .</p>
 <h4 id="Sintagmi-(regole-grammaticali)-modellati:">Sintagmi (regole grammaticali) modellati:<a class="anchor-link" href="#Sintagmi-(regole-grammaticali)-modellati:">&#182;</a></h4><ul>
 <li>Sintagmi <em>nominali</em> (<strong>NP</strong>)</li>
@@ -13288,6 +13295,9 @@ I suoi <strong>caratteristici schemi linguistici</strong> sono stati oggetto di 
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+
 <h3 id="2.3-Architettura">2.3 Architettura<a class="anchor-link" href="#2.3-Architettura">&#182;</a></h3><h4 id="Piattaforma">Piattaforma<a class="anchor-link" href="#Piattaforma">&#182;</a></h4><p><strong><em>Nltk</em></strong> è una <em>suite di librerie</em> che mette a disposizione classi e metodi per la gestione di alberi sintattici e grammatiche.</p>
 <p>Scritta in in <strong><em>python</em></strong>, è il punto di riferimento per l'elaborazione del linguaggio naturale <em>open source</em> e si è perciò dimostrata una <strong>solida scelta</strong>.</p>
 
@@ -13298,23 +13308,27 @@ I suoi <strong>caratteristici schemi linguistici</strong> sono stati oggetto di 
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h4 id="Moduli:">Moduli:<a class="anchor-link" href="#Moduli:">&#182;</a></h4><ul>
-<li><p><code>_init_</code>, responsabile dell'inizializzazione dei <strong>dati di configurazione</strong>:</p>
+<li><p><code>_init_</code>, responsabile dell'inizializzazione dei <strong><em>dati di configurazione</em></strong>:</p>
 <ul>
 <li><code>data_folder</code> e <code>data_file</code> sono i <strong>riferimenti sul filesystem</strong> rispettivamente alla <em>cartella delle grammatiche</em> e ad una <em>specifica grammatica</em></li>
 <li><code>sentences</code> è una lista di <strong>stringhe di <em>input</em></strong> (<em>frasi</em>) da sottoporre al traduttore</li>
-<li><code>translation_rules</code>  è la lista di <code>Nonterminal</code>; <strong>il traduttore la utilizza per trasformare l'albero sintattico</strong> in fase di traduzione</li>
+<li><code>translation_rules</code>  è una lista di <code>Nonterminal</code>; <strong>il traduttore la utilizza per trasformare l'albero sintattico</strong> in fase di traduzione</li>
 </ul>
 </li>
 </ul>
 <ul>
-<li><p><code>_logic_</code>, resposabile della <em>logica applicativa.</em></p>
+<li><p><code>_logic_</code>, resposabile della <strong><em>logica applicativa</em></strong> .</p>
 <ul>
-<li>Composto da due funzioni, <code>cky_parsing</code> e <code>translate</code>, <strong>determina le funzionalità dell'applicazione</strong> eseguendo elaborazioni dettagliate.</li>
+<li>Composto da due funzioni, <code>cky_parsing</code> e <code>translate</code>, <strong>determina le funzionalità dell'applicazione</strong> eseguendo elaborazioni dettagliate</li>
 </ul>
 </li>
 </ul>
 <ul>
-<li><code>_main_</code>, responsabile dell'<strong>avvio del programma</strong>; richiama entrambi i moduli precedentemente descritti.</li>
+<li><p><code>_main_</code>, responsabile dell'<strong><em>avvio del programma</em></strong>.</p>
+<ul>
+<li>Richiama entrambi i moduli precedentemente descritti. </li>
+</ul>
+</li>
 </ul>
 <hr>
 </div>
@@ -13339,9 +13353,19 @@ I suoi <strong>caratteristici schemi linguistici</strong> sono stati oggetto di 
 <p>L'algoritmo costruisce una <strong>matrice <code>table</code></strong>, di tipo <code>ndarray</code>. Ciascuna <strong>componente</strong> di tale matrice è una <strong>lista di alberi sintattici</strong> potenzialmente vuota. La presenza di <strong>un albero sintattico certifica la corrispondenza tra una produzione della grammatica e la frase di input</strong>.</p>
 <p>Questa implementazione <strong>determina se una sequenza di parole $S$ è coperta da una grammatica $G$</strong>:</p>
 <ul>
-<li>se la <strong>componente</strong> di <code>table</code> <strong>$[0,\ n-1]$</strong> è una <strong>lista vuota</strong>, allora vuol dire che <strong>non esiste un albero sintattico</strong> di $S$ in accordo a $G$.
-<br> In tal caso l'<strong>algoritmo restituisce un albero la cui radice presenta l'etichetta "<code>Grammar error</code>"</strong>.</li>
+<li><p>se la <strong>componente</strong> di <code>table</code> <strong>$[0,\ n-1]$</strong> è una <strong>lista vuota</strong>, allora vuol dire che <strong>non esiste un albero sintattico</strong> di $S$ in accordo a $G$.
+<br> In tal caso l'<strong>algoritmo restituisce un albero la cui radice presenta l'etichetta "<code>Grammar error</code>"</strong>.</p>
+<p><strong>Osservazione:</strong> ciò avviene anche se <code>grammar</code> non è espressa in <strong><em>Chomsky Normal Form</em></strong></p>
+<table class="tg" align="left">
+<tr> <th class="tg-0pky"> <b><i>Chomsky Normal Form:</i></b> forma normale in cui l’<i>RHS</i> di ogni regola possiede due simboli non terminali oppure un singolo simbolo terminale. </th> </tr> </table></li>
 </ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <ul>
 <li><p>se altrimenti tale <strong>componente</strong> è una <strong>lista non vuota</strong>, allora vuol dire che $G$ copre $S$ ed inoltre</p>
 <ul>
@@ -13399,9 +13423,9 @@ I suoi <strong>caratteristici schemi linguistici</strong> sono stati oggetto di 
 <li><em>input</em>: albero sintattico <code>tree</code> della frase da tradurre, lista di non terminali <code>translation_rules</code> e parametro opzionale booleano <code>draw</code>.</li>
 <li><em>output</em>: manipolazione dell'albero <code>tree</code> di partenza; rappresenta la traduzione effettuata</li>
 </ul>
-<p>Questa funzione effettua in <code>tree</code> una <strong>ricerca in profondità in preordine</strong> di un oggetto di classe <code>Nonterminal</code> (POS tag o sintagma che sia) presente nella lista <code>translation_rules</code>. Se la ricerca ha successo, <strong>antepone tale oggetto al resto della frase</strong>.</p>
-<p>Se <code>draw</code> ha valore <strong>True</strong>, allora l'albero così manipolato viene anche disegnato a schermo.
- La <strong>funzione restituisce l'albero manipolato</strong>, ovvero quello su cui è stata effettuata la traduzione e la cui radice presenta l'etichetta "<code>Translation</code>".</p>
+<p>Questa funzione effettua in <code>tree</code> una <strong>ricerca in profondità in preordine</strong> di un oggetto di classe <code>Nonterminal</code> (POS tag o sintagma che sia) presente nella lista <code>translation_rules</code>. Se la ricerca ha successo, <strong>antepone tale oggetto</strong> (<code>put_left</code>) <strong>al resto della frase</strong> attraverso la manipolazione dell'albero di partenza.</p>
+<p>Se <code>draw</code> ha valore <strong>True</strong>, allora l'albero così manipolato viene anche disegnato a schermo. La <strong>funzione restituisce l'albero manipolato</strong>, ovvero quello su cui è stata effettuata la traduzione, la cui radice presenta l'etichetta "<code>S'</code>".</p>
+<p><strong>Osservazione:</strong> l'albero in <em>output</em> è stato volutamente mantenuto binario.</p>
 
 </div>
 </div>
@@ -13412,15 +13436,15 @@ I suoi <strong>caratteristici schemi linguistici</strong> sono stati oggetto di 
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">translate</span><span class="p">(</span><span class="n">tree</span><span class="p">:</span> <span class="n">Tree</span><span class="p">,</span> <span class="n">translation_rules</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span> <span class="n">draw</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-    <span class="n">put_back</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">i</span><span class="p">:</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">tree</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">Tree</span><span class="p">)</span>
+    <span class="n">put_left</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">i</span><span class="p">:</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">tree</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">Tree</span><span class="p">)</span>
                                           <span class="ow">and</span> <span class="n">tree</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">label</span><span class="p">()</span> <span class="ow">in</span> <span class="n">translation_rules</span>
-                                          <span class="ow">and</span> <span class="ow">not</span> <span class="s1">&#39;put_back&#39;</span> <span class="ow">in</span> <span class="nb">locals</span><span class="p">(),</span>
+                                          <span class="ow">and</span> <span class="ow">not</span> <span class="s1">&#39;put_left&#39;</span> <span class="ow">in</span> <span class="nb">locals</span><span class="p">(),</span>
                                 <span class="n">tree</span><span class="o">.</span><span class="n">treepositions</span><span class="p">()))[</span><span class="mi">0</span><span class="p">]</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">tree</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span> <span class="k">else</span> <span class="p">[]</span>
 
-    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">put_back</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="n">prefix</span> <span class="o">=</span> <span class="n">tree</span><span class="o">.</span><span class="fm">__getitem__</span><span class="p">(</span><span class="n">put_back</span><span class="p">)</span>
-        <span class="n">tree</span><span class="o">.</span><span class="fm">__delitem__</span><span class="p">(</span><span class="n">put_back</span><span class="p">)</span>
-        <span class="n">tree</span> <span class="o">=</span> <span class="n">Tree</span><span class="p">(</span><span class="n">Nonterminal</span><span class="p">(</span><span class="s1">&#39;Translation&#39;</span><span class="p">),</span> <span class="p">[</span><span class="n">prefix</span><span class="p">,</span> <span class="n">tree</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">tree</span><span class="p">[</span><span class="mi">1</span><span class="p">]])</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">put_left</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">prefix</span> <span class="o">=</span> <span class="n">tree</span><span class="o">.</span><span class="fm">__getitem__</span><span class="p">(</span><span class="n">put_left</span><span class="p">)</span>
+        <span class="n">tree</span><span class="o">.</span><span class="fm">__delitem__</span><span class="p">(</span><span class="n">put_left</span><span class="p">)</span>
+        <span class="n">tree</span> <span class="o">=</span> <span class="n">Tree</span><span class="p">(</span><span class="n">Nonterminal</span><span class="p">(</span><span class="s2">&quot;S&#39;&quot;</span><span class="p">),</span> <span class="p">[</span><span class="n">prefix</span><span class="p">,</span> <span class="n">tree</span><span class="p">])</span>
         <span class="k">if</span> <span class="n">draw</span><span class="p">:</span> <span class="n">tree</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
 
     <span class="k">return</span> <span class="n">tree</span>
@@ -13434,11 +13458,40 @@ I suoi <strong>caratteristici schemi linguistici</strong> sono stati oggetto di 
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="3.-Conclusione">3. Conclusione<a class="anchor-link" href="#3.-Conclusione">&#182;</a></h2><h3 id="3.1-Considerazioni">3.1 Considerazioni<a class="anchor-link" href="#3.1-Considerazioni">&#182;</a></h3><p>Il programma si comporta bene nella maggior parte dei casi, ma non in tutti.</p>
-<p>Le incongruenze presenti all'interno delle citazioni stesse non permettono infatti di stabilire delle regole di traduzione generali al punto che il traduttore si comporti bene per tutti i possibili <em>input</em>.</p>
-<p>Con riferimento agli esempi, il traduttore ottiene sempre l'esatto <strong>output atteso</strong>, tranne che per l'esempio $(b)$; che però, come osservato precedentemente, si comporta in modo anomalo per ben 2 delle 3 regole catturate per la traduzione nel linguaggio di Yoda e pertanto richiederebbe delle <em>regole ad hoc</em>.</p>
-<p>A supporto del fatto che sia un caso specifico problematico da generalizzare, riporto di seguito la traduzione del <a href="http://www.yodaspeak.co.uk/index.php">Yoda speak generator</a>: <br></p>
-<p align="center"><img src="https://i.ibb.co/dtpL47B/yoda.png"/></p><p>La quale <strong>coincide esattamente</strong> con quella ottenuta tramite il sistema realizzato, riportata nel paragrafo successivo.</p>
+<hr>
+
+<h3 id="2.4-Note-sull'implementazione">2.4 Note sull'implementazione<a class="anchor-link" href="#2.4-Note-sull'implementazione">&#182;</a></h3><p>Il sistema fa ampio uso di <strong>funzioni anonime</strong> (o <strong>funzioni lambda</strong>), caratterizzate dall'assenza di un identificatore. Tali funzioni godono della caratteristica di essere <strong>componibili</strong>, ossia autonome e senza stato. 
+Ciò rende possibile la <strong>composizione di funzioni</strong>, ovvero l'utilizzo di funzioni come parametri di altre funzioni.</p>
+<p>Lo stile di programmazione che fa uso di questa caratteristica viene chiamato <strong>programmazione funzionale</strong> ed è basato su un paradigma di tipo <em>dichiarativo</em> anziché <em>procedurale</em>; <strong><em>python</em></strong> lo supporta.</p>
+<p><strong>Vantaggi principali di questo approccio:</strong></p>
+<ul>
+<li><em>Maggiore facilità di lettura e manutenibilità</em>, ogni funzione è progettata per realizzare un'attività specifica con gli argomenti assegnati. La funzione non si basa su alcuno stato esterno.</li>
+<li><em>Sviluppo iterativo più semplice</em>, in quanto è più agevole eseguire il refactoring del codice ed è più facile implementare le modifiche di progettazione.</li>
+<li><em>Procedure più semplici di test e debug</em>, le funzioni anonime possono essere più facilmente testate in isolamento ed è possibile scrivere codice di test che le chiama con valori tipici, casi limite validi e casi limite non validi.</li>
+<li><a href="https://leadsift.com/loop-map-list-comprehension/"><i>Migliori prestazioni</i></a></li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+<h2 id="3.-Conclusione">3. Conclusione<a class="anchor-link" href="#3.-Conclusione">&#182;</a></h2><h3 id="3.1-Considerazioni">3.1 Considerazioni<a class="anchor-link" href="#3.1-Considerazioni">&#182;</a></h3><h4 id="3.1.1-Correttezza">3.1.1 Correttezza<a class="anchor-link" href="#3.1.1-Correttezza">&#182;</a></h4><p>Il programma si comporta come atteso nella maggior parte dei casi, ma non in tutti.</p>
+<p>Le incongruenze presenti all'interno delle citazioni stesse di cui si è parlato precedentemente, non permettono infatti di stabilire delle regole di traduzione generali al punto da permettere al traduttore di comportarsi ottimamente per tutti i possibili <em>input</em>.</p>
+<p>Con riferimento agli esempi, in particolare, il traduttore ottiene sempre l'esatto <strong>output atteso</strong>, tranne che per l'esempio $(b)$; che però si comporta in modo anomalo per ben 2 delle 3 regole catturate per la traduzione nel linguaggio Yoda e pertanto richiederebbe delle <em>regole ad hoc</em>.</p>
+<p>Viene di seguito riportata la traduzione del <a href="http://www.yodaspeak.co.uk/index.php">Yoda speak generator</a>: <br></p>
+<p align="center"><img src="https://i.ibb.co/dtpL47B/yoda.png"/></p><p><br></p>
+<p>La quale <strong>non coincide</strong> con l'output atteso e prova la duplice problematicità sia dell'esempio in questione che della generalizzazione della traduzione nel linguaggio Yoda.</p>
+<h4 id="3.1.2-Paradigma-di-traduzione-automatica-adottato">3.1.2 Paradigma di traduzione automatica adottato<a class="anchor-link" href="#3.1.2-Paradigma-di-traduzione-automatica-adottato">&#182;</a></h4><p>Il paradigma di traduzione adottato dal sistema prende il nome di paradigma <strong>transfer</strong>.</p>
+<p>Per effettuare cioè la traduzione effettua le seguenti iterazioni:</p>
+<ul>
+<li><em><strong>Analizza</strong></em> la struttura sintattica dell'<em>input</em>, cioè la <strong>parsifica</strong> e ne <strong>valuta i <em>POS tag</em></strong>; nel sistema implementato ciò corrisponde all'esecuzione dell'<em>algoritmo CKY</em></li>
+<li><em><strong>Trasferisce</strong></em> la struttura analizzata, ovvero effettua una prima <strong>traduzione</strong>; nel sistema implementato ciò non è necessario in quanto le parole non cambiano tra i due idiomi</li>
+<li><em><strong>Sintetizza</strong></em> la frase in <em>output</em> attraverso l'utilizzo di regole; nel sistema implementato tali regole decidono l'<strong>ordine</strong> dei sintagmi </li>
+</ul>
 
 </div>
 </div>
@@ -13454,12 +13507,12 @@ I suoi <strong>caratteristici schemi linguistici</strong> sono stati oggetto di 
 </thead>
 <tbody>
 <tr>
-<td><img src="data:image/png;base64, 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" alt="1_a.png"></td>
-<td><img src="data:image/png;base64, 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" alt="1_b.png"></td>
+<td><img src="https://i.ibb.co/9q7KQ48/S.png"/></td>
+<td><img src="https://i.ibb.co/gF5YLSJ/S.png"/></td>
 </tr>
 <tr>
-<td><img src="https://i.ibb.co/gD5Cw1p/yoda.png"/></td>
-<td><img src="https://i.ibb.co/VMcb6gc/yoda.png"/></td>
+<td><img src="https://i.ibb.co/qWqKCYN/S.png"/></td>
+<td><img src="https://i.ibb.co/ns3K8mJ/S.png"/></td>
 </tr>
 </tbody>
 </table>
