@@ -206,6 +206,7 @@ Implementazione della **fase di traduzione** del programma.
 - _output_: manipolazione dell'albero `tree` di partenza; rappresenta la traduzione effettuata
 
 Questa funzione effettua in `tree` una **ricerca in profondità in preordine** di un oggetto di classe `Nonterminal` (POS tag o sintagma che sia) presente nella lista `translation_rules`. Se la ricerca ha successo, antepone tale oggetto al resto della frase.
+Tali oggetti rappresentano i complementi non oggetto presenti dopo il verbo. I complementi oggetto vengono trattati separatamente dalle istruzioni successive. 
 
 Se `draw` ha valore **True**, allora l'albero così manipolato viene anche disegnato a schermo. La **funzione restituisce l'albero manipolato**, ovvero quello su cui è stata effettuata la traduzione, la cui radice presenta l'etichetta "`S'`".
 
@@ -221,11 +222,18 @@ def translate(tree: Tree, translation_rules: list, draw=False):
                                 tree.treepositions()))[0] if len(tree) != 0 else []
 
     if len(put_left) != 0:
-        prefix = tree.__getitem__(put_left)
-        tree.__delitem__(put_left)
-        tree = Tree(Nonterminal("S'"), [prefix, tree])
+        tree = apply_translation(put_left, tree)
+        if tree[tree.treepositions()[-2]].label() not in [Nonterminal("AUX"), Nonterminal("VERB")]:
+            tree = apply_translation(tree.treepositions()[-2], tree)
         if draw: tree.draw()
 
+    return tree
+
+
+def apply_translation(put_left, tree):
+    prefix = tree.__getitem__(put_left)
+    tree.__delitem__(put_left)
+    tree = Tree(Nonterminal("S'"), [prefix, tree])
     return tree
 ```
 <hr>
@@ -262,7 +270,7 @@ Viene di seguito riportata la traduzione del <a href="http://www.yodaspeak.co.uk
 
 <br>
 
-La quale **non coincide** con l'output atteso e prova la duplice problematicità sia dell'esempio in questione che della generalizzazione della traduzione nel linguaggio Yoda.
+La quale prova la duplice problematicità sia dell'esempio in questione che della generalizzazione della traduzione nel linguaggio Yoda.
 
 
 #### 3.1.2 Paradigma di traduzione automatica adottato
@@ -280,5 +288,5 @@ Per effettuare cioè la traduzione effettua le seguenti iterazioni:
 
 | <p><b>Input</b></p> | <p><b>Output reale</b></p> |
 | -------- | -------- |
-| <img src="https://i.ibb.co/9q7KQ48/S.png"/> | <img src="https://i.ibb.co/gF5YLSJ/S.png"/> |
+| <img src="https://i.ibb.co/gV8SQv0/cky.png"/> | <img src="https://i.ibb.co/G2Y87Q3/cky.png"/> |
 | <img src="https://i.ibb.co/qWqKCYN/S.png"/> | <img src="https://i.ibb.co/ns3K8mJ/S.png"/> |

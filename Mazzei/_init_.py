@@ -1,5 +1,4 @@
 from pathlib import Path
-
 from nltk import grammar
 
 data_folder = Path.cwd() / 'Grammars'
@@ -16,6 +15,3 @@ sentences = ["Noi siamo illuminati",
 translation_rules = [grammar.Nonterminal('ADJP'), grammar.Nonterminal('ADJ'),
                      grammar.Nonterminal('VBN'),
                      grammar.Nonterminal('ADVP'), grammar.Nonterminal('ADV')]
-
-
-

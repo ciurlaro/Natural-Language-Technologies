@@ -23,7 +23,7 @@ def cky_parsing(words: list, grammar: CFG, draw=False):
                     table[i, j] = rule if table[i, j] is None else rule + table[i, j]
 
         if draw and len(table[0, n - 1]) != 0: table[0, n - 1][0].draw()
-        return table[0, n-1][0] if len(table[0, n-1]) != 0 else Tree("Grammar error", [])
+        return table[0, n-1][0] if (len(table[0, n-1]) != 0 and table[0, n-1][0].label() == Nonterminal("S")) else Tree("Grammar error", [])
 
 
 def translate(tree: Tree, translation_rules: list, draw=False):
@@ -33,10 +33,16 @@ def translate(tree: Tree, translation_rules: list, draw=False):
                                 tree.treepositions()))[0] if len(tree) != 0 else []
 
     if len(put_left) != 0:
-        prefix = tree.__getitem__(put_left)
-        tree.__delitem__(put_left)
-        tree = Tree(Nonterminal("S'"), [prefix, tree])
+        tree = apply_translation(put_left, tree)
+        if tree[tree.treepositions()[-2]].label() not in [Nonterminal("AUX"), Nonterminal("VERB")]:
+            tree = apply_translation(tree.treepositions()[-2], tree)
         if draw: tree.draw()
 
     return tree
-# 42
+
+
+def apply_translation(put_left, tree):
+    prefix = tree.__getitem__(put_left)
+    tree.__delitem__(put_left)
+    tree = Tree(Nonterminal("S'"), [prefix, tree])
+    return tree
