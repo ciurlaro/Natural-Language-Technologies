@@ -1,6 +1,7 @@
 from nltk.corpus import wordnet
 from nltk.corpus.reader.wordnet import Synset
 
+
 # 1 - Pos tagging
 # 2 - Features extraction (class of features: bag-of-word/ collocational)
 
@@ -17,18 +18,26 @@ from nltk.corpus.reader.wordnet import Synset
 
 
 def simplified_lesk(word: str, sentence: str) -> Synset:
-    #sense.definition()
     synsets = wordnet.synsets(word)
-    best_sense = wordnet.synsets(word)[0]
-    max_overlap = 0
-    context = set(sentence.split(" "))
 
-    for sense in synsets:
-        signature = set(sense.definition().split(" "))      # examples
-        overlap = len(signature - (signature - context))
-        if overlap > max_overlap:
-            max_overlap = overlap
-            best_sense = sense
+    try:
+        best_sense = wordnet.synsets(word)[0]
 
-    return best_sense
+        max_overlap = 0
+        context = set(sentence.split(" "))
 
+        for sense in synsets:
+            signature = set(sense.definition().split(" "))
+            for sentence in sense.examples():
+                signature.union(sentence.split(" "))
+
+            overlap = len(signature.intersection(context))
+
+            if overlap > max_overlap:
+                max_overlap = overlap
+                best_sense = sense
+
+        return best_sense
+
+    except:
+        return Synset(None)

@@ -1,28 +1,17 @@
-from Radicioni.Corpus.SemCor import semcor_extraction
-from Radicioni.Esercizio_2.simplified_lesk import simplified_lesk
-import sklearn.metrics as metrics
+simplified_lesk_sentences = ["**Arms** bend at the elbow.",
+                             "Germany sells **arms** to Saudi Arabia.",
+                             "The **key** broke in the lock.",
+                             "The **key** problem was not one of quality but of quantity. ",
+                             "Work out the **solution** in your head.",
+                             "Heat the **solution** to 75° Celsius. ",
+                             "The house was burnt to **ashes** while the owner returned.",
+                             "This table is made of **ash** wood.",
+                             "The **lunch** with her boss took longer than she expected.",
+                             "She packed her **lunch** in her purse.",
+                             "The **classification** of the genetic data took two years.",
+                             "The journal Science published the **classification** this month.",
+                             "His cottage is near a small **wood**.",
+                             "The statue was made out of a block of **wood**."]
 
 
-
-def main():
-    sentences, extracted = semcor_extraction()
-
-    for i in range(0, len(sentences)):
-      sense = simplified_lesk(extracted[i][0][0], sentences[i])
-      print(sense, extracted[i].label())
-
-    # print("Sinonimi:", sense.lemmas())
-    # accuracy: Sensi dei sostantivi classificati bene/ Tutti i sensi delle parola nel Semcore
-
-
-def calculate_accuracy():
-    # Calculate accuracy
-    ground = [str(element['semcor']) for element in dataset]
-    predicted_nltk = [str(element['nltk_lesk']) for element in dataset]
-    predicted_simplified = [str(element['simplified_lesk']) for element in dataset]
-    nltk_accuracy = metrics.accuracy_score(ground, predicted_nltk)
-    simplified_accuracy = metrics.accuracy_score(ground, predicted_simplified)
-
-
-
-main()
+sentence_number = 10
