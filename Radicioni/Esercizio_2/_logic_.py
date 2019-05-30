@@ -4,7 +4,7 @@ from Radicioni.Esercizio_2._init_ import simplified_lesk_sentences
 from Radicioni.Esercizio_2.simplified_lesk import simplified_lesk
 
 
-def pre_process_sentences():
+def pre_process_sentences() -> list:
     disambiguation_words = []
     for i in range(0, len(simplified_lesk_sentences)):
         for elem in simplified_lesk_sentences[i].split():
@@ -23,6 +23,6 @@ def replace_synonyms(disambiguation_words):
         print(simplified_lesk_sentences[i])
 
 
-def calculate_accuracy(best_senses, semcor_senses):
+def calculate_accuracy(best_senses, semcor_senses) -> float:
     simplified_accuracy = accuracy_score(best_senses, semcor_senses)
     return simplified_accuracy

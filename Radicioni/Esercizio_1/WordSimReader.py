@@ -1,18 +1,16 @@
 import csv
 
 
-def WordSimReader(filename: str) -> list:
-    wordSim= []
+def word_sim_reader(filename: str) -> list:
+    word_sim= []
     f = open(filename, "rt")
     try:
         reader = csv.reader(f)
+        next(reader)
         for row in reader:
-            if row[0].startswith("#"):
-                continue
-            else:
-                wordSim.append(row)
+            word_sim.append(row)
 
     finally:
         f.close()
 
-    return wordSim
+    return word_sim
