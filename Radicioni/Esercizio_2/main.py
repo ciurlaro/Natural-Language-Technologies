@@ -1,6 +1,7 @@
 import re
-from TLN.Radicioni.Esercizio2.Lesk import simplified_Lesk
-from TLN.Radicioni.Esercizio2.SemcorExtraction import semcor_extraction
+
+from Radicioni.Corpus.SemCor import semcor_extraction
+from Radicioni.Esercizio_2.simplified_lesk import simplified_lesk
 
 
 def main():
@@ -29,7 +30,7 @@ def main():
                 words.append(polysemic_term)
 
     for i in range(0, len(sentences)):
-        synset = simplified_Lesk(words[i], sentences[i])                     # Lesk
+        synset = simplified_lesk(words[i], sentences[i])                     # Lesk
         print("Best sense founded for this sentence: ", synset)
         sentences[i] = sentences[i].replace(words[i], str(synset.lemmas()))  # lemmas()= synonyms of the chosen synset
         print(sentences[i])
@@ -41,7 +42,7 @@ def main():
     semCor_sentences, semCor_extracted, semcor_synset = semcor_extraction()
 
     for i in range(0, len(sentences)):
-      sense = simplified_Lesk(semCor_extracted[i][0][0], sentences[i])
+      sense = simplified_lesk(semCor_extracted[i][0][0], sentences[i])
       print(sense, semcor_synset[i])
 
     # accuracy: Sensi dei sostantivi classificati bene/ Tutti i sensi delle parola nel Semcore
