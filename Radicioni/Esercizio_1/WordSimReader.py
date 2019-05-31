@@ -2,7 +2,7 @@ import csv
 
 
 def word_sim_reader(filename: str) -> list:
-    word_sim= []
+    word_sim = []
     f = open(filename, "rt")
     try:
         reader = csv.reader(f)
