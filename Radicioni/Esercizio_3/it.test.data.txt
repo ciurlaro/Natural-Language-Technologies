@@ -198,107 +198,107 @@ diplomazia	negoziato
 gravità	meteora
 QI	Mensa
 Union Jack	bandiera
-terremoto	scossa
-patrimonio	azione
-ebreo	Gerusalemme
-nuvolosità	previsione
-dizionario	enciclopedia
-zecca	museo
-sedia	sgabello
-spagnolo	umidità
-lattina	bottiglia
-mosca	formica
-mito	satira
-centro della città	autobus
-coda	Boeing 747-200
-opera d'arte	artista
-NATO	alleanza
-re	sovrano
-ritmo	cadenza
-Alexander Fleming	penicillina
-flauto	musica
-airone cenerino	lago
-viscosità	spruzzo
-hardware	case
-anello	fidanzamento
-latino	tedesco
-classe operaia	fabbrica
-Shakespeare	Dickens
-banconota	prete
-strumento	lavoro
-cinghiale nano	suidi
-suffragio	uscita
-stella	luminosità
-trota	chitarra
-dollaro	milionario
-cifra	numero
-burrasca	coperta
-Obama	Clinton
-personaggio secondario	film
-Juventus	Bayern Monaco
-cambiamento climatico	precipitazione
-IA	batteria
-capolavoro	Gioconda
-crimine	aggressione
-incoronazione	acqua
-vocalista	pentagramma
-spareggio	pallacanestro
-forze armate	difesa
-lago	nuvola
-monastero	doccia
-lingua madre	lingua
-porto	incarto
-demonio	angelo
-crittogramma	simbolo
-campus	università
-libertà	libertà
-tifone	ciclone
-manuale	guida turistica
-Ebola	virus Ebola
-principessa	biscotto
-treno	tram
-ecosistema	economia
-regina regnante	regina degli scacchi
-oro	zinco
-cursore	patatine fritte
-Rio delle Amazzoni	foresta
-tennis	statistica
-Bolzano	teorema
-altitudine	conversione
-barca	albero
-trono	spada
-cotone	maglione
-ciliegia	fragola
-Islam	Corano
-Neanderthal	sport
-nepotismo	re
-personaggio	persona
-cisterna	vagone
-Mercurio	Giove
-bronchite	acetaminofene
-sangue	corpo
-islamofobia	ISIS
-uncinetto	uniforme
-Hadoop	touchscreen
-combustibile fossile	fossile
-mutante	sociobiologia
-sorella	fratello
-matita	storia
-eczema	dermatite
-imperatore	governatore
-corona	chiave
-algebra	operazione
-pistone	motore
-borsa di studio	retta
-libro	manoscritto
-lantana	bocca di leone
-buco nero	vuoto
-Impero Persiano	Ciro
-editoriale	notizia
-decorazione	busta
-squalo balena	aragosta
-mais	granturco
-disturbo bipolare	problema
+terremoto	scossa  3
+patrimonio	azione  1
+ebreo	Gerusalemme 2.7
+nuvolosità	previsione  2.5
+dizionario	enciclopedia    3
+zecca	museo 2
+sedia	sgabello 3.2
+spagnolo	umidità 2.5
+lattina	bottiglia 2.7
+mosca	formica 3
+mito	satira 2.3
+centro della città	autobus 3
+coda	Boeing 747-200 2
+opera d'arte	artista 3
+NATO	alleanza 3.1
+re	sovrano 3.7
+ritmo	cadenza 3.6
+Alexander Fleming	penicillina 2.6
+flauto	musica 2.7
+airone cenerino	lago 2.5
+viscosità	spruzzo 2
+hardware	case 2
+anello	fidanzamento 3.4
+latino	tedesco 3
+classe operaia	fabbrica 3.3
+Shakespeare	Dickens 3.1
+banconota	prete 1.3
+strumento	lavoro 2
+cinghiale nano	suidi 1
+suffragio	uscita 2
+stella	luminosità 3.4
+trota	chitarra 1
+dollaro	milionario 1.6
+cifra	numero 3.8
+burrasca	coperta 1.9
+Obama	Clinton 3
+personaggio secondario	film 3.4
+Juventus	Bayern Monaco 3.5
+cambiamento climatico	precipitazione 3
+IA	batteria 1.5
+capolavoro	Gioconda 2.5
+crimine	aggressione 3
+incoronazione	acqua 1.3
+vocalista	pentagramma 2.7
+spareggio	pallacanestro 2.5
+forze armate	difesa 2.5
+lago	nuvola 2
+monastero	doccia 1.1
+lingua madre	lingua 3.5
+porto	incarto 1
+demonio	angelo 2.5
+crittogramma	simbolo 3
+campus	università 3
+libertà	libertà 4
+tifone	ciclone 3.4
+manuale	guida turistica 2.7
+Ebola	virus Ebola 3.9
+principessa	biscotto 1
+treno	tram 3
+ecosistema	economia 3.5
+regina regnante	regina degli scacchi 3.6
+oro	zinco 3
+cursore	patatine fritte 1
+Rio delle Amazzoni	foresta 2.4
+tennis	statistica 1.3
+Bolzano	teorema 1
+altitudine	conversione 1
+barca	albero 1.2
+trono	spada 3
+cotone	maglione 3
+ciliegia	fragola 3.4
+Islam	Corano 3.6
+Neanderthal	sport 1
+nepotismo	re 2
+personaggio	persona 2.3
+cisterna	vagone 1.9
+Mercurio	Giove 3.4
+bronchite	acetaminofene 3.2
+sangue	corpo 3.6
+islamofobia	ISIS 3.2
+uncinetto	uniforme 1.8
+Hadoop	touchscreen 1.4
+combustibile fossile	fossile 3.6
+mutante	sociobiologia 3
+sorella	fratello 3.6
+matita	storia 2.7
+eczema	dermatite 3
+imperatore	governatore 3.4
+corona	chiave 2.1
+algebra	operazione 3.6
+pistone	motore 3.4
+borsa di studio	retta 3.8
+libro	manoscritto 3.7
+lantana	bocca di leone 3.5
+buco nero	vuoto 1.2
+Impero Persiano	Ciro 1
+editoriale	notizia 2.9
+decorazione	busta 1.7
+squalo balena	aragosta 2
+mais	granturco 3.2
+disturbo bipolare	problema 3.3
 acido	base
 zero assoluto	vapore
 rivoluzione verde	vernice

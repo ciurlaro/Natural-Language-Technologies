@@ -1,10 +1,14 @@
 import sys
+
+
 #
 #
 #
 def letter_to_int(letter):
     alphabet = list('abcdefghijklmnopqrstuvwxyz \'0123456789')
     return alphabet.index(letter.lower()) + 1
+
+
 #
 # 
 def map_2_hundred(accumulator):
@@ -20,10 +24,12 @@ def map_2_hundred(accumulator):
     elif accumulator < 4:
         a = "301-400"
         print('annotazione coppie 301-400 del file it.test.data.txt')
-    else: # 4
+    else:  # 4
         a = "401-500"
         print('annotazione coppie 401-500 del file it.test.data.txt')
     return a
+
+
 #
 # 
 # 
@@ -32,14 +38,14 @@ def map_2_hundred(accumulator):
 # ================================================================
 
 
-def cognome()-> str:
+def cognome() -> str:
     if len(sys.argv) < 2:
         input_name = input("Inserimento cognome (senza spazi): ")
     elif len(sys.argv) == 2:
         input_name = sys.argv[1]
     else:
-        print('\n\n\nUSAGE to run the program\n', \
-          '\npython script_name your_surname\npython script_name\n\n')
+        print('\n\n\nUSAGE to run the program\n',
+              '\npython script_name your_surname\npython script_name\n\n')
         sys.exit(1)
 
     accumulator = 0
