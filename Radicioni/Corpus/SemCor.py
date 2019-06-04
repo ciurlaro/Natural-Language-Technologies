@@ -1,10 +1,14 @@
 import random
 from nltk.corpus import semcor
 from nltk.corpus.reader.wordnet import Lemma
-from Radicioni.Esercizio_2._init_ import sentence_number
 
 
-def semcor_extraction() -> tuple:
+def semcor_extraction(sentence_number: int = 50) -> tuple:
+    """
+    Extracts `sentence_number` sentences from the semcore corpus.
+    From each of them extracts also a random noun.
+    :return: Returns a tuple (extracted sentences list, extracted nouns list)
+    """
     sentences = []
     extracted = []
 

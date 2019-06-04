@@ -3,6 +3,12 @@ from nltk.corpus.reader.wordnet import Synset
 
 
 def simplified_lesk(word: str, sentence: str) -> Synset:
+    """
+    Computes the max_overlap to understand what is the best sense
+    :param word: word to dissmbiguate
+    :param sentence: sentence in which word appears
+    :return: Synset that maximizes the overlap
+    """
     synsets = wordnet.synsets(word)
 
     try:
@@ -29,8 +35,13 @@ def simplified_lesk(word: str, sentence: str) -> Synset:
 
 
 def removes_stopwords_lesk(word: str, sentence: str) -> Synset:
+    """
+    Computes the max_overlap to understand what is the best sense, eliminating the stopwords
+    :param word: word to dissmbiguate
+    :param sentence: sentence in which word appears
+    :return: Synset that maximizes the overlap
+    """
     stopwords_set = set(stopwords.words('english'))
-
     synsets = wordnet.synsets(word)
 
     try:
@@ -45,7 +56,6 @@ def removes_stopwords_lesk(word: str, sentence: str) -> Synset:
                 signature.union(sentence.split(" "))
 
             signature.difference(stopwords_set)
-
             overlap = len(signature.intersection(context))
 
             if overlap > max_overlap:
@@ -60,12 +70,11 @@ def removes_stopwords_lesk(word: str, sentence: str) -> Synset:
 
 def extended_context_lesk(word: str, sentence: str) -> Synset:
     """
-
+    Computes the max_overlap to understand what is the best sense, using hypernyms and hyponyms
     :param word: the word to be disambiguated
     :param sentence: input sentence which contains param 'word'
     :return: best_sense, which is a Wordnet Synset, for param 'word'
     """
-
     stopwords_set = set(stopwords.words('english'))
 
     synsets = wordnet.synsets(word)
@@ -80,8 +89,8 @@ def extended_context_lesk(word: str, sentence: str) -> Synset:
 
         for hypernym in sense.hypernyms():
             signature = signature.union(hypernym.definition().split(" "))
-            for hyponym in sense.hyponyms():
-                signature = signature.union(hyponym.definition().split(" "))
+        for hyponym in sense.hyponyms():
+            signature = signature.union(hyponym.definition().split(" "))
 
         signature.difference(stopwords_set)
 
