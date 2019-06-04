@@ -4,7 +4,7 @@ from nltk.corpus import wordnet
 from nltk.corpus.reader import Synset
 from sklearn.metrics import accuracy_score
 from Radicioni.Esercizio_2._init_ import simplified_lesk_sentences
-from Radicioni.Esercizio_2.simplified_lesk import simplified_lesk
+from Radicioni.Esercizio_2.lesk_algorithms import simplified_lesk
 
 
 def pre_process_sentences() -> list:

@@ -1,28 +1,30 @@
-import csv
-from Radicioni.Esercizio_3.sem_eval_mapper import cognome
-from pathlib import Path
+from Radicioni.Esercizio_3._logic_ import *
+import pprint
 
 
 def main():
-    lines = cognome().split('-')
+    annotated_dict = select_lines()
+    nasari_dict = load_data_from_file()
+    sem_eval_dict = load_data_from_sem_eval()
 
-    with open(Path.cwd() / "it.test.data.txt", encoding='utf-8') as input_file:
+    # pprint.pprint(nasari_dict)
 
-        writer = csv.writer(open("output.csv", "w", newline='', encoding='utf-8'))
-        input_reader = input_file.readlines()
+    for concepts in annotated_dict:
+        for concept in concepts:
+            synset_concepts = sem_eval_dict[concept]
 
-        for i in range(int(lines[0]) - 1, int(lines[1])):
-            w_line = input_reader[i][:-1].split('\t')
+            for sense in synset_concepts:
+                if sense in nasari_dict:
+                    sem_eval_dict[concept][sense] = nasari_dict[sense]
 
-            flag = True
-            while flag:
-                input_name = input("Punteggio della coppia " + w_line[0] + " - " + w_line[1] + ": " + "\n")
-                if input_name.isnumeric() and 0 <= float(input_name) <= 4:
-                    flag = False
+    '''Manca il synset bn:00012827n all'interno del file. Cosa facciamo?'''
 
-            w_line.append(input_name)
-            print(w_line)
-            # writer.writerow(w_line)
+    for concepts in annotated_dict:
+        concept_1, concept_2 = best_sense_identification(concepts[0], concepts[1], sem_eval_dict)
+        print("Best senses for", concepts[0],  "and", concepts[1], "are:",
+                                  concept_1, "(" , get_description(nasari_dict, concept_1), ")",
+                                  concept_2 ,"(" , get_description(nasari_dict, concept_2), ")")
+
 
 
 main()
