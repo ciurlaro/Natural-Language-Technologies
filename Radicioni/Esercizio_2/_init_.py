@@ -3,12 +3,12 @@ Sentences in which the words to disambiguate appear.
 Those words are inserted between the ** tag.
 """
 Lesk_sentences = ["**Arms** bend at the elbow.",
-                             "Germany sells **arms** to Saudi Arabia.",
-                             "The **key** broke in the lock.",
-                             "The **key** problem was not one of quality but of quantity. ",
-                             "Work out the **solution** in your head.",
-                             "Heat the **solution** to 75° Celsius. ",
-                             "The house was burnt to **ashes** while the owner returned.",
+                  "Germany sells **arms** to Saudi Arabia.",
+                  "The **key** broke in the lock.",
+                  "The **key** problem was not one of quality but of quantity. ",
+                  "Work out the **solution** in your head.",
+                  "Heat the **solution** to 75° Celsius. ",
+                  "The house was burnt to **ashes** while the owner returned.",
                   "This table is made of **ash** wood.",
                   "The **lunch** with her boss took longer than she expected.",
                   "She packed her **lunch** in her purse.",

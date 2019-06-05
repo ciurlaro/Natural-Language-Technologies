@@ -1,5 +1,6 @@
 from nltk.corpus import wordnet, stopwords
 from nltk.corpus.reader.wordnet import Synset
+from nltk.stem import WordNetLemmatizer
 
 
 def simplified_lesk(word: str, sentence: str) -> Synset:
@@ -12,18 +13,18 @@ def simplified_lesk(word: str, sentence: str) -> Synset:
     synsets = wordnet.synsets(word)
 
     try:
-        best_sense = wordnet.synsets(word)[0]
+        lemmatizer = WordNetLemmatizer()
 
+        best_sense = wordnet.synsets(word)[0]
         max_overlap = 0
-        context = set(sentence.split(" "))
+        context = set(lemmatizer.lemmatize(word)for word in sentence.split(" "))
 
         for sense in synsets:
-            signature = set(sense.definition().split(" "))
-            for sentence in sense.examples():
-                signature.union(sentence.split(" "))
+            signature = set(lemmatizer.lemmatize(word)for word in sense.definition().split(" "))
+            for example in sense.examples():
+                signature.union(set(lemmatizer.lemmatize(word)for word in example.split(" ")))
 
             overlap = len(signature.intersection(context))
-
             if overlap > max_overlap:
                 max_overlap = overlap
                 best_sense = sense
@@ -45,19 +46,20 @@ def removes_stopwords_lesk(word: str, sentence: str) -> Synset:
     synsets = wordnet.synsets(word)
 
     try:
-        best_sense = wordnet.synsets(word)[0]
+        lemmatizer = WordNetLemmatizer()
 
+        best_sense = wordnet.synsets(word)[0]
         max_overlap = 0
-        context = set(sentence.split(" "))
+        context = set(lemmatizer.lemmatize(word)for word in sentence.split(" "))
 
         for sense in synsets:
-            signature = set(sense.definition().split(" "))
-            for sentence in sense.examples():
-                signature.union(sentence.split(" "))
+            signature = set(lemmatizer.lemmatize(word)for word in sense.definition().split(" "))
+            for example in sense.examples():
+                signature.union(set(lemmatizer.lemmatize(word)for word in example.split(" ")))
 
             signature.difference(stopwords_set)
-            overlap = len(signature.intersection(context))
 
+            overlap = len(signature.intersection(context))
             if overlap > max_overlap:
                 max_overlap = overlap
                 best_sense = sense
@@ -76,29 +78,36 @@ def extended_context_lesk(word: str, sentence: str) -> Synset:
     :return: best_sense, which is a Wordnet Synset, for param 'word'
     """
     stopwords_set = set(stopwords.words('english'))
-
     synsets = wordnet.synsets(word)
-    context = set(sentence.split())
 
-    max_overlap = 0
-    best_sense = synsets[0]
+    try:
+        lemmatizer = WordNetLemmatizer()
 
-    for sense in synsets:
-        # get the synset meaning
-        signature = set(sense.definition().split(" "))
+        best_sense = wordnet.synsets(word)[0]
+        max_overlap = 0
+        context = set(lemmatizer.lemmatize(word)for word in sentence.split(" "))
 
-        for hypernym in sense.hypernyms():
-            signature = signature.union(hypernym.definition().split(" "))
-        for hyponym in sense.hyponyms():
-            signature = signature.union(hyponym.definition().split(" "))
+        for sense in synsets:
+            signature = set(lemmatizer.lemmatize(word)for word in sense.definition().split(" "))
 
-        signature.difference(stopwords_set)
+            for example in sense.examples():
+                signature.union(set(lemmatizer.lemmatize(word)for word in example.split(" ")))
 
-        # compute the overlap between synset signature and synset context
-        overlap = len(signature.intersection(context))
+            for hypernym in sense.hypernyms():
+                signature = signature.union(set(lemmatizer.lemmatize(word)for word in hypernym.definition().split(" ")))
 
-        if overlap > max_overlap:
-            max_overlap = overlap
-            best_sense = sense
+            for hyponym in sense.hyponyms():
+                signature = signature.union(set(lemmatizer.lemmatize(word)for word in hyponym.definition().split(" ")))
 
-    return best_sense
+            signature.difference(stopwords_set)
+
+            overlap = len(signature.intersection(context))
+            if overlap > max_overlap:
+                max_overlap = overlap
+                best_sense = sense
+
+        return best_sense
+
+    except:
+        return Synset(None)
+
