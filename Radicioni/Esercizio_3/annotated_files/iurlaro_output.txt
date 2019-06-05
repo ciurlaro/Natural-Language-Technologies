@@ -1,0 +1,500 @@
+Joule	astronave
+Terra Promessa	Baku
+macchina	bicicletta
+poliedro	attore
+sclerosi multipla	sclerosi a placche
+faglia	sistema
+arma	elmetto
+sceneggiatore	televisione
+Nazioni Unite	Ban Ki-moon
+Si-o-se Pol	ponte matematico
+basilica	mosaico
+acquerello	pennello
+democrazia	monarchia
+Gauss	scienziato
+tubercolosi	led
+auto senza conducente	auto autonoma
+apocalisse	fuoco
+velocità	posto
+PlayStation	Wii
+portatile	computer portatile
+Harry Potter	mago
+snowboard	sci
+puntatore	diapositiva
+sensore	radiatore
+colpo	cornice
+teoria	ipotesi
+Wall Street	mercato finanziario
+Darwin	evoluzione
+attore	attrice
+film	teatro
+inno nazionale	patriottismo
+schermo	monitor
+caseificio	miele
+monte Everest	Chomolungma
+tiro alla fune	Scale e Serpenti
+pesticida	parassita
+poliziotto	politico
+neuropsicologia	parapsicologia
+batteria	energia
+Legion d'onore	cancelleria
+Uomo Ragno	strada
+penisola	isola
+equatore	Ecuador
+diagramma	grafico
+simulazione	robotica
+Nike	Adidas
+società	cultura
+gioco di strategia	strategia
+chiesa	cattedrale
+traduttore	straniero
+biotopo	biologia
+magma	vulcano
+brainstorming	telescopio
+livello	punteggio
+centesimo	affare
+partito politico	associazione
+tsunami	mare
+struzzo	frutteto
+cannella	caramella
+scopa	polvere
+galassia	astronomo
+succo	frappè
+tapparella	tenda
+criminale	colpevole
+cancro al pancreas	chemioterapia
+passato	antecedente
+Nazioni Unite	Parlamento Europeo
+canzone	esecutore
+pistola	taccuino
+acetilcolina	iride
+alfabeto	penna
+coro	cantante
+legno	coperta
+soldato	pace
+inglese	americano
+lucertola	coccodrillo
+denaro	contante
+Polpo Paul	polpo
+calendario	vacanza
+base	sostanza chimica
+governo	lucertola
+JPY	riciclaggio di denaro
+DeepMind	Google DeepMind
+scacchi	scacco al re
+sonetto	bellezza
+lavoratore	ufficio
+valuta	scambio
+poliestere	cotone
+tribunale	giustizia
+coda	retro
+incidente	libro
+groppo	vento
+piano	armonia
+sultano	ministero
+deserto	duna
+moltiplicazione	divisione
+virus	sangue
+era glaciale	statuto
+spada	ambiente
+scuola elementare	penna
+cricket	sostenitore
+scultura	statua
+browser	Mozilla Firefox
+Fox Terrier	Canon
+HSBC	Gran Bretagna
+Bibbia	Vangelo
+vestito	danza
+array	lista
+cella	gattabuia
+saggio	compito a casa
+computer	macchina
+panda	orso polare
+nevrosi	mente
+campagna	scimmia
+costante di Faraday	zaino
+palazzo	grattacielo
+elicottero	aereo
+Università di Cambridge	Università di Oxford
+bandiera	asta
+finestra	tetto
+gioco di carte	frisbee
+malware	worm
+pianeta	stella
+corridore	atleta
+calibro	ombrello
+WiFi	WikiLeaks
+siccità	acqua
+aeroporto	pezzo
+orchestra	banda
+mojito	mohito
+programma	esame
+teorema	teoria
+yo-yo	giocattolo
+tormenta	pioggia
+storico	storiografo
+Siemens	treno elettrico
+secolo	anno
+lega	acciaio
+magistrato	giudice
+caos	classe
+formazione a distanza	internet
+sabbia	piede
+IMF	Deutsche Bank
+Guardian	Times
+baco da seta	Via della Seta
+libertà	oasi
+citoplasma	dito
+protestante	cristiano
+Leonardo da Vinci	L'Ultima Cena
+mappa	piazza
+parlamento	congresso
+raccolta fondi	sviluppo
+patologia	ematologia
+valle	depressione
+telescopio	sedia
+heavy metal	palco
+globalismo	visto
+pipistrello	vampiro
+deputato	dirigente
+elettricità	cassa
+forestiero	straniero
+bottone	macchina da cucire
+mago	cavo
+filosofo	corsa
+popcorn	cinema
+agricoltura	pianta
+poeta	giornalista
+tempo	onda
+civiltà	stile di vita
+neve	ghiaccio
+Seconda Guerra Mondiale	Beethoven
+scheda madre	scheda madre
+circolo	marchio
+Alessandro Magno	conquistatore
+app	galassia
+cloud computing	pioggia
+televisione	attore
+delta	mare
+filato	filo
+attraversamento pedonale	persona
+proteina	maniglia
+U2	Ronaldo
+Apple	iPhone
+menta piperita	gomma
+poster	carta
+UNICEF	radice
+xenofobia	razzismo
+Woody Allen	lente
+lampada	genio
+marina militare	isola
+muro	castello
+dinosauro	elefante
+torre dell'orologio	pietra
+medio oriente	Eufrate
+prato	prateria
+chitarra	violino
+diplomazia	negoziato
+gravità	meteora
+QI	Mensa
+Union Jack	bandiera
+terremoto	scossa	3
+patrimonio	azione	1
+ebreo	Gerusalemme	2.7
+nuvolosità	previsione	2.5
+dizionario	enciclopedia	3
+zecca	museo	2
+sedia	sgabello	3.2
+spagnolo	umidità	2.5
+lattina	bottiglia	2.7
+mosca	formica	3
+mito	satira	2.3
+centro della città	autobus	3
+coda	Boeing 747-200	2
+opera d'arte	artista	3
+NATO	alleanza	3.1
+re	sovrano	3.7
+ritmo	cadenza	3.6
+Alexander Fleming	penicillina	2.6
+flauto	musica	2.7
+airone cenerino	lago	2.5
+viscosità	spruzzo	2
+hardware	case	2
+anello	fidanzamento	3.4
+latino	tedesco	3
+classe operaia	fabbrica	3.3
+Shakespeare	Dickens	3.1
+banconota	prete	1.3
+strumento	lavoro	2
+cinghiale nano	suidi	1
+suffragio	uscita	2
+stella	luminosità	3.4
+trota	chitarra	1
+dollaro	milionario	1.6
+cifra	numero	3.8
+burrasca	coperta	1.9
+Obama	Clinton	3
+personaggio secondario	film	3.4
+Juventus	Bayern Monaco	3.5
+cambiamento climatico	precipitazione	3
+IA	batteria	1.5
+capolavoro	Gioconda	2.5
+crimine	aggressione	3
+incoronazione	acqua	1.3
+vocalista	pentagramma	2.7
+spareggio	pallacanestro	2.5
+forze armate	difesa	2.5
+lago	nuvola	2
+monastero	doccia	1.1
+lingua madre	lingua	3.5
+porto	incarto	1
+demonio	angelo	2.5
+crittogramma	simbolo	3
+campus	università	3
+libertà	libertà	4
+tifone	ciclone	3.4
+manuale	guida turistica	2.7
+Ebola	virus Ebola	3.9
+principessa	biscotto	1
+treno	tram	3
+ecosistema	economia	3.5
+regina regnante	regina degli scacchi	3.6
+oro	zinco	3
+cursore	patatine fritte	1
+Rio delle Amazzoni	foresta	2.4
+tennis	statistica	1.3
+Bolzano	teorema	1
+altitudine	conversione	1
+barca	albero	1.2
+trono	spada	3
+cotone	maglione	3
+ciliegia	fragola	3.4
+Islam	Corano	3.6
+Neanderthal	sport	1
+nepotismo	re	2
+personaggio	persona	2.3
+cisterna	vagone	1.9
+Mercurio	Giove	3.4
+bronchite	acetaminofene	3.2
+sangue	corpo	3.6
+islamofobia	ISIS	3.2
+uncinetto	uniforme	1.8
+Hadoop	touchscreen	1.4
+combustibile fossile	fossile	3.6
+mutante	sociobiologia	3
+sorella	fratello	3.6
+matita	storia	2.7
+eczema	dermatite	3
+imperatore	governatore	3.4
+corona	chiave	2.1
+algebra	operazione	3.6
+pistone	motore	3.4
+borsa di studio	retta	3.8
+libro	manoscritto	3.7
+lantana	bocca di leone	3.5
+buco nero	vuoto	1.2
+Impero Persiano	Ciro	1
+editoriale	notizia	2.9
+decorazione	busta	1.7
+squalo balena	aragosta	2
+mais	granturco	3.2
+disturbo bipolare	problema	3.3
+acido	base
+zero assoluto	vapore
+rivoluzione verde	vernice
+sistema operativo	deep learning
+olimpiadi internazionali di matematica	teoria
+El Niño	equatore
+distintivo	vetro
+dimora	scultore
+atmosfera	ozono
+scudo	brocchiero
+moneta	pagamento
+avena	campo
+monaco	croce
+cannoniera	costa
+roccia	miniera
+leggenda	morale
+campione	vincitore
+dado	cubo
+topologia	struttura
+cappella	cavo
+flusso di cassa	fiume
+serial killer	assassino
+matrice	molecola
+moda	stile
+vessillologia	bandiera
+trattato di Maastricht	Europa
+geyser	sorgente
+saccarosio	carboidrato
+spiaggia	costa
+mercato azionario	borsa
+tradizione	artigianato
+romanzo	scrittore
+panino	Subway
+acustica	suono
+scherma	ginnastica
+scrittore	regalo
+bosco	Tiger Woods
+nuvola	finestra
+JPEG	PDF
+regista	capo
+tassa	Brexit
+impollinazione	stame
+videogioco	gioco per PC
+cura	operazione chirurgica
+risaia	patata
+appunti	compito
+volpe	cellula del sangue
+cloruro di sodio	sale
+reddito	qualità della vita
+volontà	intenzione
+bussola	elefante
+seguito	macchina fotografica
+film	pellicola
+sergente	pistola
+mulino	seme
+gelato	colazione
+chiave	serratura
+cellulare	telefono
+scuola materna	asilo
+mondo occidentale	Western Union
+piantina	foglia
+pioggia	grandine
+felicità	tristezza
+baco da seta	bruco
+surf	sport acquatico
+macchina	camion
+cibo	programma
+romanzo a fumetti	fumetto
+serpente	lucertola
+ananas	smartphone
+sfondo del desktop	sfondo
+Celsius	Microsoft
+mietitrebbia	canna da zucchero
+jeans	donna
+matrice	vettore
+anidride carbonica	CO2
+allenatore	giocatore
+sasso	legno
+caricabatteria	disco
+manoscritto	articolo
+Gmail	Yahoo
+condensatore	diodo
+corruzione	frode
+Coca Cola	coca
+Platone	Aristotele
+guerra fredda	Unione Sovietica
+ugello	fluido
+fonologia	schermo
+Zara	leggings
+gioco del calcio	calcio
+germe	agente patogeno
+repubblica	duca
+palla	sfera
+Mozart	Guerre stellari
+maschera	festa
+Grand Theft Auto	GTA
+autostrada	strada
+reazione a catena	termodinamica
+illustrazione	vescica
+antropologia	archeologia
+Dell	Dingle
+succo	cucchiaio
+Pfizer	medicinale
+camion	pacco
+recettore	molecola proteica
+Google Drive	driver
+miliardario	senzatetto
+episodio	capitolo
+infinito	zero
+servo	schiavo
+suffisso	affisso
+riscaldamento globale	calore
+ormone della crescita	somatotropina
+cielo	sogno
+prezzo di offerta	Londra
+fertilizzante	crescita
+hashtag	argomento
+Orione	costellazione
+Nietzsche	Chelsea
+rispetto reciproco	competizione
+ramo	braccio
+vittima	telefono
+deviazione standard	accumulazione
+valanga	neve
+insegnante	studente
+bestiame	yogurt
+sessismo	discriminazione di genere
+Polo Sud	danza
+pubblico ministero	avvocato
+racchetta	palla
+mutuo	debito
+prospettiva	distanza
+Federer	Dylan
+avvocato	galleria
+aspettativa di vita	misura statistica
+membrana cellulare	provirus
+Unione Europea	Mosca
+mondo	Asia
+Paint	Photoshop
+senato	costituzione
+prezzemolo	muffin
+mente	cervello
+Mercedes	Opel
+martello	dente
+Rinascimento	Rinascimento
+gonna	orologio
+opera	cinema
+insegnante	istruttore
+Sole	cavo
+recessione	PIL
+Cesare	Giulio Cesare
+paziente	sessione
+comportamentismo	terapia
+imperatore	costituzione
+matematico	spettacolo
+entropia	informazione
+acqua di rose	olio di rosa
+agrume	pompelmo
+Regina Vittoria	Inghilterra
+Giochi Olimpici	spirito
+vescovo	musulmano
+uomo	sospetto
+meteorite	Terra
+simbolo	segno
+antropologia	New York
+tramonto	tavolo
+cittadina	città
+giacca	acqua minerale
+natura	flora
+subroutine	compilatore
+Hamadan	Roma
+ombrello	stufa
+onore	stima
+insegna	dignità
+KFC	McDonald's
+joystick	radar
+basmati	riso jasmine
+medaglia	scarpe da ginnastica
+legge	piscina
+sorgente	scatola
+teatro	batteria
+flora	web browser
+camicia	cardigan
+poema	ritmo
+profeta	prete
+Oscar	stadio
+backgammon	Go
+farfalla	rosa
+recinto	salto
+nichilismo	film
+asteroide	stella
+sommossa	disegno
+intimo	corpo
+Boeing	aereo
+cameo	interpretazione
+semestre	quadrimestre
+arancia	agrume
+ghiacciaio	riscaldamento globale
+galleria	percorso
