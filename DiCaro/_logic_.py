@@ -163,6 +163,7 @@ def pre_process_occurrences(data, track_ids, words) -> list:
     Also, it filters them according to their frequency and whether they are stop words or not
     :param data: data structure in which all the information are collected
     :param track_id: track unique identifier
+    :param words: list of the words contained in the lyrics dataset
     :return: list of lists, each one of those contains a track_index, a word and the count of that word in that track
     """
     stop_words = set(stopwords.words('english'))
