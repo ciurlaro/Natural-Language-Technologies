@@ -92,27 +92,27 @@ def load_from_dataset(db_file, h5_file, musiXmatch_file, data) -> list:
     return get_lyrics(musiXmatch_file, data)
 
 
-def write_into_csv(data, words):
+def write_into_csv(data, words, output_csv, words_dataset_csv):
     """
     Writes into a csv output file the collected and merged information
     :param data: data structure in which all the information are collected
     :param words: list of the words contained in the lyrics dataset
     """
-    writer = csv.writer(open("output.csv", "w", newline=''))
+    writer = csv.writer(open(output_csv, "w+", newline=''))
     for row in data.items():
         writer.writerow(row)
 
-    writer = csv.writer(open("words.csv", "w", newline='', encoding="utf-8"))
+    writer = csv.writer(open(words_dataset_csv, "w+", newline='', encoding="utf-8"))
     writer.writerow(words)
 
 
-def read_from_csv(data) -> list:
+def read_from_csv(data, output_csv, words_dataset_csv) -> list:
     """
     Reads from the csv output file the collected and merged information
     :param data: data structure in which all the information are collected
     :return: list of the words contained in the lyrics dataset
     """
-    reader = csv.reader(open("output.csv"), delimiter=',')
+    reader = csv.reader(open(output_csv), delimiter=',')
     for row in reader:
         keys = row[0][1:-1].split(", ")
         values = row[1][1:-1].split(", ")
@@ -132,7 +132,7 @@ def read_from_csv(data) -> list:
 
             data[keys[0][1:-1], "lyrics"] = frequencies
 
-    reader = csv.reader(open("words.csv", encoding="utf-8"), delimiter=',')
+    reader = csv.reader(open(words_dataset_csv, encoding="utf-8"), delimiter=',')
     for row in reader:
         return row
 
@@ -179,7 +179,7 @@ def pre_process_occurrences(data, track_ids, words) -> list:
     return tracks_co_occurrences
 
 
-def data_loading(db_file, h5_file, musiXmatch_file, data) -> tuple:
+def data_loading(db_file, h5_file, musiXmatch_file, data, output_csv, words_dataset_csv) -> tuple:
     """
     Controls the source from which load the information of the dataset
     :param db_file: Database file whose tuples has to be extracted
@@ -188,10 +188,10 @@ def data_loading(db_file, h5_file, musiXmatch_file, data) -> tuple:
     :param data: data structure in which all the information are collected
     :return: a tuple which contains all the associations of each word into each track id
     """
-    if not (Path.cwd() / "output.csv").exists():
+    if not output_csv.exists():
         words = load_from_dataset(db_file, h5_file, musiXmatch_file, data)
-        write_into_csv(data, words)
-    words = read_from_csv(data)
+        write_into_csv(data, words, output_csv, words_dataset_csv)
+    words = read_from_csv(data, output_csv, words_dataset_csv)
     track_ids = list(map(lambda key: key[0], filter(lambda key: key[1] == "info", data.keys())))
     print("Fetched", len(data), "songs")
 
