@@ -15,5 +15,5 @@ text_clustering_components = ["track_id", "word", "count"]
 '''
 Data loading
 '''
-data = {} # print(data[('TRAAABD128F429CF47', 'info')]
-words, track_ids = data_loading(data)
+data = {}    # print(data[('TRAAABD128F429CF47', 'info')]
+words, track_ids = data_loading(db_file, h5_file, musiXmatch_file, data)
