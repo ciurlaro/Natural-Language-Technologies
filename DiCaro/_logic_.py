@@ -2,7 +2,7 @@ import sqlite3, csv
 from collections import defaultdict
 from pathlib import Path
 from nltk.corpus import stopwords
-from DiCaro.MSongsDB.PythonSrc import hdf5_getters
+from DiCaro.Dataset import hdf5_getters
 from DiCaro._init_ import *
 
 
@@ -240,8 +240,9 @@ def aggregate_clusters_data(tracks_examples, tracks_occurrences, track_ids, word
         for intersection_track in best_correlation:
             if track_ids[track[0]] == intersection_track and words[int(track[1])] not in stop_words:
                 intersection_information[intersection_track].append((words[int(track[1])], track[2]))
-                if tracks_examples[track[0]][:-1] and \
-                        tracks_examples[track[0]][:-1] not in intersection_information[intersection_track]:
-                    intersection_information[intersection_track].insert(0, tracks_examples[track[0]][:-1])
+                try:
+                    if tracks_examples[track[0]][:-1] not in intersection_information[intersection_track]:
+                        intersection_information[intersection_track].insert(0, tracks_examples[track[0]][:-1])
+                except: pass
 
     return intersection_information
