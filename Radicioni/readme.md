@@ -1,9 +1,6 @@
 #ESERCIZIO 1
 
-Preso un file WordSimSimilarity, composto da una coppia di parole ed un valore corrispondente alla loro similarity, sono state calcolate ed implementate le seguenti metriche rappresentanti le similarity:
--Wu & Palmer
--Shortest path
--Leacock and Chodorow
+Preso un file WordSimSimilarity, composto da una coppia di parole ed un valore corrispondente alla loro similarity, sono state calcolate ed implementate le seguenti metriche rappresentanti le similarity: Wu & Palmer, Shortest path, Leacock and Chodorow.
 Successivamente sono stati calcolati gli indici di correlazione Pearson e Spearman, con lo scopo di confrontare i risultati precedentemente ottenuti.
 Di seguito sono riportati i valori finali ottenuti:
 
@@ -30,11 +27,14 @@ LC) 0.29033458035854387
 
 Per questo esercizio, a scopo di effettuare Word Sense Disambiguation, è stato implementato l'algoritmo Lesk, in tre varianti.
 La prima variante rappresenta l'implementazione dello pseudocodice visto a lezione. In particolare, si calcola la max_overlap tra i possibili sensi di Wordnet per la parola data, e si restituisce il senso che massimizza tale overlap. L'algoritmo prende dunque in input la parola da disambiguare, ed una frase in cui appare (contesto).
+
 La seconda implementazione è simile alla prima, il procedimento generale è lo stesso, ma è stata implementata in maniera aggiuntiva l'eliminazione delle stopwords all'interno delle frasi, cercando di rendere il contesto più pulito possibile.
 La terza ed ultima versione, prevede l'amplificazione del contesto a tutto ciò che riguarda, ed è correlato tramite, le relazioi di Hyperonym e Hyponym, applicate alle paorle del contesto. Generando un contesto molto più vasto, proviamo a vedere se le prestazioni, applicando questa modifica, possono migliorare o cambiare in qualche modo.
+
 In un primo momento sono stati disambiguati i termini polisemici contenuti in sentences.txt, con le frasi in cui apparivano, e sono stati sostituiti con la lista di sinonimi (ottenuta tramite la funzione lemmas() ) del senso restituito da Lesk.
 Successivamente l'algoritmo è stato utilizzato per disambiguare 50 termini presi in modo random da 50 frasi ottenute dal corpus Semcor.
 I risultati, calcolati in termini di accuracy, sono riportati successivmante.
+
 In media la prima implementazione fornisce un risultato di ~0.4, contro una baseline di ~0.6 prendendo le informazioni (parole da disambiguare e frasi) dal corpus Semcor. Questo gap tra baseline e implementazione Lesk è giustificato dal fatto che la baseline è stata calcolata sulla base del primo synset restituito da WordNet, il quale rappresenta il synset statisticamente più probabile.
 Per quanto riguarda i risultati ottenuti attraverso la seconda e terza implementazione, non si notano miglioramenti significativi. I risultati sembrano dunque essere pressochè identici.
 
@@ -48,6 +48,5 @@ Successivamente, a scopo di identificare i corretti sensi di Babel, è stata imp
 
 
 DA FARE:
+
 getGloss()
-calcolare MEDIA:
-calcolare inter-rater agreement (pearson - spearman)
