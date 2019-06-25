@@ -10,14 +10,20 @@ Di seguito sono riportati i valori finali ottenuti:
 - Pearson correlation:
 
 WP) 0.29700237615006186
+
 SP) -0.06801134931497702
+
 LC) 0.319721382759658
+
 
 - Spearman correlation:
 
 WP) 0.3514162690947211
+
 SP) 0.29034784872693087
+
 LC) 0.29033458035854387
+
 
 
 #ESERCIZIO 2
