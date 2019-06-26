@@ -42,7 +42,15 @@ Per quanto riguarda i risultati ottenuti attraverso la seconda e terza implement
 
 Per quanto riguarda il terzo ed ultimo esercizio, sono state inizialmente annotate 100 coppie di termini con un valore di similarity compreso tra 0 e 4.
 Le coppie sono state fornite dal file it.test.data.txt. Successivamente sono stati calcolati il valore medio e l’inter-rater agreement fra le annotazioni dei tre diversi annotatori. Per il calcolo dell' inter-rater agreement sono stati utilizzati, come misure, gli indici di correlazione di Pearson e Spearman.
+I risultati di questa computazione sono riportati in fondo.
 Successivamente, a scopo di identificare i corretti sensi di Babel, è stata implementata la cosine similarity sui vettori nasari forniti dal file mini-nasari.tsv. Una volta effettuato il task di sense indentification, sono stati restituiti i corretti sensi, ovvero quelli che rendevano massima la cosine similarity, e la rispettiva glossa.
+
+INTER-RATER AGREEMENT
+( 0 , 1 ) PC:  0.7574318415062212 SC:  0.7583300448215048 
+
+( 0 , 2 ) PC:  0.8066287958553586 SC:  0.8388276512272342 
+
+( 1 , 2 ) PC:  0.8174349077649021 SC:  0.8128527487138741 
 
 
 
