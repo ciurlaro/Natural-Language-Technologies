@@ -46,6 +46,7 @@ I risultati di questa computazione sono riportati in fondo.
 Successivamente, a scopo di identificare i corretti sensi di Babel, è stata implementata la cosine similarity sui vettori nasari forniti dal file mini-nasari.tsv. Una volta effettuato il task di sense indentification, sono stati restituiti i corretti sensi, ovvero quelli che rendevano massima la cosine similarity, e la rispettiva glossa.
 
 INTER-RATER AGREEMENT
+
 ( 0 , 1 ) PC:  0.7574318415062212 SC:  0.7583300448215048 
 
 ( 0 , 2 ) PC:  0.8066287958553586 SC:  0.8388276512272342 
