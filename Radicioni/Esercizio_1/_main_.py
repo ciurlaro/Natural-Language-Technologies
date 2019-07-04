@@ -19,12 +19,13 @@ if __name__ == '__main__':
         lc_res.append(lc_similarity(row[0], row[1]))
         sp_res.append(sp_similarity(row[0], row[1]))
         target_values.append(float(row[2]) / 10)
+    print('Pearson Correlation: ')
+    print("WP: ", pearson_correlation_coefficient(target_values, wp_res))
+    print("LC: ", pearson_correlation_coefficient(target_values, lc_res))
+    print("SP: ", pearson_correlation_coefficient(target_values, sp_res))
 
-    print(pearson_correlation_coefficient(target_values, wp_res))
-    print(pearson_correlation_coefficient(target_values, lc_res))
-    print(pearson_correlation_coefficient(target_values, sp_res))
-
-    print(spearman_rank_correlation_coefficient(target_values, wp_res))
-    print(spearman_rank_correlation_coefficient(target_values, lc_res))
-    print(spearman_rank_correlation_coefficient(target_values, sp_res))
+    print('Spearman Correlation: ')
+    print("WP: ", spearman_rank_correlation_coefficient(target_values, wp_res))
+    print("LC: ", spearman_rank_correlation_coefficient(target_values, lc_res))
+    print("SP: ", spearman_rank_correlation_coefficient(target_values, sp_res))
 

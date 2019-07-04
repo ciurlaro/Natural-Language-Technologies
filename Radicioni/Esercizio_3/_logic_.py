@@ -9,7 +9,8 @@ import pprint
 from scipy.stats import pearsonr, spearmanr
 from numpy import mean
 from partd import numpy
-
+key_cesare = 'd98e5389-2438-4db4-8672-fcdd4ce6d4f9'
+key_nicolo = '34461ea6-4c3a-411f-9531-d9e3cae24954'
 
 
 def select_lines(file_name: str) -> dict:
@@ -33,13 +34,13 @@ def select_lines(file_name: str) -> dict:
 
 def load_data_from_file() -> dict:
     """
-    Loads data from file `mini_NASARI.tsv` into `nasari_dict`
+    Loads data from file `mini_nasari.tsv` into `nasari_dict`
     :return: nasari_dict: a dictionary whose key is a babel synset id, and whose value is a tuple containing a
              description of the babel synset id and its corresponding nasari vector
     """
 
     nasari_dict = {}
-    with open(Path.cwd() / "mini_nasari" / "mini_NASARI.tsv", encoding="utf-8") as nasari_file:
+    with open(Path.cwd() / "mini_nasari" / "mini_nasari.tsv", encoding="utf-8") as nasari_file:
         for row in nasari_file:
             line = row.split("\t")
             key = line[0].split("__")
@@ -56,7 +57,7 @@ def load_data_from_sem_eval() -> defaultdict:
     """
 
     s2sdict = defaultdict(str)
-    with open(Path.cwd() / "SemEval17_IT_senses2synsets.txt", encoding="utf-8") as sem_eval_s2s_file:
+    with open(Path.cwd() / "mini_nasari" / "SemEval17_IT_senses2synsets.txt", encoding="utf-8") as sem_eval_s2s_file:
         for row in sem_eval_s2s_file:
             if row[0] == "#":
                 key = row[1:-1]
@@ -200,8 +201,8 @@ def sense_identification(file_name):
     for concepts in annotated_dict:
         concept_1, concept_2 = best_senses_identification(concepts[0], concepts[1], sem_eval_dict)
         print("Best senses for", concepts[0], "and", concepts[1], "are:",
-              concept_1, "[", get_description(nasari_dict, concept_1), "]",
-              concept_2, "[", get_description(nasari_dict, concept_2), "]")
+              concept_1, "[", get_gloss(concept_1, key_cesare), "]",
+              concept_2, "[", get_gloss(concept_2, key_cesare), "]")
 
 
 def get_results(file_list):
@@ -211,15 +212,40 @@ def get_results(file_list):
     """
     whole_evaluations = extract_evaluations(file_list)
     people_evaluations = defaultdict(list)
+    print()
     for couple in whole_evaluations:
         couple_of_words = couple[0]
         evaluations_list = couple[1]
-        print(couple_of_words, mean(evaluations_list))
+        print("La coppia di parole: ", couple_of_words, "ha un'annotazione media di:", mean(evaluations_list))
 
         for person in range(0, len(evaluations_list)):
             people_evaluations[person].append(evaluations_list[person])
 
+    print()
+    print("INTER-RATER AGREEMENT")
     for elem in itertools.combinations(people_evaluations.keys(), 2):
         pearson = pearsonr(people_evaluations[elem[0]], people_evaluations[elem[1]])
         spearman = spearmanr(people_evaluations[elem[0]], people_evaluations[elem[1]])
-        print("\n", pearson[0], spearman[0])
+        print("(", elem[0], ",", elem[1], ")", "PC: ", pearson[0], "SC: ", spearman[0], "\n")
+
+
+def get_gloss(id: str, key: str):
+    import urllib
+    import urllib3
+    import json
+
+    service_url = 'https://babelnet.io/v5/getSynset'
+    params = {
+        'id': id,
+        'key': key
+    }
+
+    url = service_url + '?' + urllib.parse.urlencode(params)
+    # print(url)
+
+    http = urllib3.PoolManager()
+    response = http.request('GET', url)
+    babel_synset = json.loads(response.data.decode('utf-8'))
+    # pprint.pprint(get_gloss(babel_synset))
+    # print(babel_synset)
+    return ['BABEL SYNSET NOT FOUND'] if 'message' in  babel_synset else babel_synset['glosses'][0]['gloss']
