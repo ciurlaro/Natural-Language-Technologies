@@ -57,24 +57,22 @@ A ciascuna coppia è attribuito un **valore numerico [0,10]**, che rappresenta l
 L'esercizio consiste nell'**implementare tre misure di similarità** basate su WordNet, le quali risultano essere rispettivamente:
 
 - **Wu & Palmer** 
- <p align="center">
-     <img src="https://latex.codecogs.com/gif.latex?cs%28s1%2Cs2%29%3D%5Cfrac%7B2*depth%28LCS%29%7D%7Bdepth%28s1%29&plus;depth%28s2%29%7D">
- </p>
- 
-dove *LCS* risulta essere il primo antenato comune, detto *Lowest Common Subsumer*, fra i sensi *s1* e *s2* e *depth(x)* è una funzione che misura la distanza fra la radice di WordNet e il synset *x*.
+   <p align="center">
+        <img src="https://latex.codecogs.com/gif.latex?cs%28s1%2Cs2%29%3D%5Cfrac%7B2*depth%28LCS%29%7D%7Bdepth%28s1%29&plus;depth%28s2%29%7D">
+   </p> dove <i>LCS</i> risulta essere il primo antenato comune, detto <i>Lowest Common Subsumer</i>, fra i sensi <i>s1</i> ed <i>s2</i> e <i>depth(x)</i> è una funzione che misura la distanza fra la radice di WordNet e il synset <i>x</i>.
 
 - **Shortest Path**
-<p align="center">
-     <img src="https://latex.codecogs.com/gif.latex?sim_%7Bpath%7D%28s1%2Cs2%29%3D2*depthMax%20-%20len%28s1%2Cs2%29">
- </p>
-    
-dove *depthMax*, data una specifica versione di WordNet, risulta essere un valore fissato (nel nostro caso, con la versione 3.0 di WordNet, ha valore pari a 40).
+   <p align="center">
+        <img src="https://latex.codecogs.com/gif.latex?sim_%7Bpath%7D%28s1%2Cs2%29%3D2*depthMax%20-%20len%28s1%2Cs2%29">
+   </p> dove <i>depthMax</i>, data una specifica versione di WordNet, risulta essere un valore fissato (nel nostro caso, con la versione 3.0 di WordNet, pari a 40).
 
 - **Leakcock & Chodorow**
 <p align="center">
      <img src="https://latex.codecogs.com/gif.latex?sim_%7BLC%7D%28s1%2Cs2%29%3D-log%5Cfrac%7Blen%28s1%2Cs2%29%7D%7B2*depthMax%7D">
- </p>
+</p>
 
+<hr>    
+    
 - **Indici di correlazione**
      
      Per ciascuna di tali misure di similarità, effettuiamo anche il calcolo degli **indici di correlazione di**:
@@ -102,15 +100,15 @@ Di seguito sono riportati i valori finali ottenuti:
 
 
 # Esercizio 2 - Word Sense Disambiguation
-Word sense disambiguation (WSD) is an open problem of natural language processing, which comprises the process of identifying which sense of a word (i.e. meaning) is used in any given sentence, when the word has a number of distinct senses (polysemy). 
+*"Word sense disambiguation (WSD) is an open problem of natural language processing, which comprises the process of identifying which sense of a word (i.e. meaning) is used in any given sentence, when the word has a number of distinct senses (polysemy)."*
 
 ## Input 
 L’**input** per questo esercizio è costituito da un **file** di testo che ha nome `sentences.txt` all'interno del quale troviamo **14 frasi** contenenti rispettivamente dei termini polisemici i quali sono identificabili per via del fatto di essere compresi tra due coppie di **.
 
 ## Consegna
-1. Implementare l’algoritmo di Lesk 
-2. Disambiguare i termini polisemici all’interno delle frasi del ﬁle ‘sentences.txt’; oltre a restituire i synset ID del senso (appropriato per il contesto), il programma deve riscrivere ciascuna frase in input sostituendo il termine polisemico con l’elenco dei sinonimi eventualmente presenti nel synset. 
-3. Estrarre 50 frasi dal corpus SemCor, corpus annotato con i synset di WN, e disambiguare almeno un sostantivo per frase. Calcolare l’accuratezza del sistema implementato sulla base dei sensi annotati in SemCor
+1. Implementare l’**algoritmo di Lesk**
+2. **Disambiguare i termini polisemici** all’interno delle frasi del ﬁle `sentences.txt`; oltre a restituire i synset ID del senso (appropriato per il contesto), il programma deve riscrivere ciascuna frase in input sostituendo il termine polisemico con l’elenco dei sinonimi eventualmente presenti nel synset
+3. Estrarre 50 frasi dal corpus *SemCor*, corpus annotato con i synset di *WN*, e disambiguare almeno un sostantivo per frase. **Calcolare l’accuratezza del sistema implementato sulla base dei sensi annotati in SemCor**
 
 
 ## Algoritmo di Lesk
@@ -118,16 +116,16 @@ Tale algoritmo rappresenta di gran lunga uno degli algoritmi di sense disambigua
 
 **Pseudocodice** dell'algoritmo su cui sono basate le implementazioni all'interno dell'esercitazione:
 <p align="center">
-<img src="https://user-images.githubusercontent.com/37592014/60672048-c03b0880-9e74-11e9-8769-27215887fb7b.PNG" width="60%" height="30%">
+ <img src="https://user-images.githubusercontent.com/37592014/60672048-c03b0880-9e74-11e9-8769-27215887fb7b.PNG" width="60%" height="30%">
 </p>
 
-Rispettivamente, l'algoritmo di Lesk è stato implementato in tre varianti:
-- La prima rappresenta l'implementazione dello pseudocodice presentato nell'immagine qui sopra. 
+L'algoritmo di Lesk è stato implementato in tre varianti:
+1. **Implementazione dello pseudocodice** presentato nell'immagine qui sopra. 
 
-- La seconda è simile alla prima, attua lo stesso procedimento generale, ma è stata aggiunta l'eliminazione delle stopwords, cercando di rendere il contesto quanto meno rumoroso possibile.
+2. Implementazione analoga alla prima, attua lo stesso procedimento generale, alla quale è stata aggiunta l'**eliminazione delle stopwords** allo scopo di rendere il contesto quanto meno rumoroso possibile.
 
-- La terza versione, invece, prevede l'estensione del contesto andando a trattare iperonimi ed iponimi associate alle paorle del contesto. 
-Generando un contesto molto più vasto, proviamo a vedere se le prestazioni possono migliorare e/o cambiare in qualche modo.
+3. Implementazione con **estensione del contesto**; aggiunge al contesto *iperonimi* ed *iponimi* dei termini in esso presenti.
+Lo scopo è quello di *analizzare la variazione di prestazioni* alla generazione di un contesto più vasto.
 
 
 ## Risultati ottenuti 
@@ -138,15 +136,17 @@ Riportiamo i risultati calcolati in termini di accuracy.
 | **Accuracy**         |  0.4  | ~0.4  | ~0.4 |  
 | **Baseline**        |  0.6  | 0.6  | 0.6 | 
 
-Questo gap tra baseline e implementazione Lesk è giustificato dal fatto che la baseline è stata calcolata sulla base del primo synset restituito da WordNet, il quale rappresenta il synset statisticamente più probabile.
+Questo *gap tra baseline e implementazione Lesk* è giustificato dal fatto che la baseline è stata calcolata sulla base del primo synset restituito da WordNet, il quale rappresenta il synset statisticamente più probabile.
 
-Per quanto riguarda i risultati ottenuti attraverso la seconda e terza versione dell'algoritmo, non si notano miglioramenti significativi. I risultati sono dunque essere pressochè identici.
+Per quanto riguarda i risultati ottenuti attraverso la seconda e terza versione dell'algoritmo, *non si notano miglioramenti significativi*. I risultati sono infatti pressochè identici.
 
 # Esercizio 3 - Annotazione di Corpora e Sense Identiﬁcation 
-Per quanto riguarda il terzo ed ultimo esercizio, sono state inizialmente annotate 100 coppie di termini con un valore di similarity compreso tra 0 e 4.
-Le coppie sono state fornite dal file `it.test.data.txt`. Successivamente sono stati calcolati il valore medio e l’inter-rater agreement fra le annotazioni dei tre diversi annotatori. Per il calcolo dell' inter-rater agreement sono stati utilizzati, come misure, gli indici di correlazione di Pearson e Spearman.
-I risultati di questa computazione sono riportati in fondo.
-Successivamente, a scopo di identificare i corretti sensi di Babel, è stata implementata la cosine similarity sui vettori nasari forniti dal file mini-nasari.tsv. Una volta effettuato il task di sense indentification, sono stati restituiti i corretti sensi, ovvero quelli che rendevano massima la cosine similarity, e la rispettiva glossa.
+
+## Consegna
+1. **Annotare** le coppie presenti nel file `it.test.data.txt` con un valore di *similarity* compreso tra 0 e 4
+2. **Calcolare valore medio ed inter-rater agreement** fra le annotazioni dei tre diversi annotatori
+  Per il calcolo dell' *inter-rater agreement* sono stati utilizzati, come misure, gli *indici di correlazione di Pearson e Spearman*.
+
 
 | **Inter-Rater Agreement, Pearson**  | Ferretti | Gabbia | Iurlaro |
 | ------------- | ------------- | ------------- | ------------- |
@@ -159,3 +159,8 @@ Successivamente, a scopo di identificare i corretti sensi di Babel, è stata imp
 | **Ferretti**         |  -  | 0.8128527487138741  | 0.7583300448215048 |  
 | **Gabbia**        |  0.8128527487138741  | -  | 0.8388276512272342 | 
 | **Iurlaro**        |  0.7583300448215048  |  0.8388276512272342 | - | 
+
+3. **Effettuare sense identification**, ovvero *identificare i sensi che massimizzano il punteggio di similarità* fra 2 termini.
+  A tale scopo è stata applicata la misura di *cosine similarity* tra i **vettori nasari** forniti dal file `mini-nasari.tsv`. 
+  
+4. **Valutare** l'appropriatezza della coppia dei sensi identificati, stabilendo se i sensi in questione sono quelli idealmente selezionati al momento dell’annotazione.
