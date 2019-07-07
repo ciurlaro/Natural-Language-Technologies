@@ -1,6 +1,6 @@
 # Dettagli implementativi
 
-### Linguaggio di programmazione: python
+- ### Linguaggio di programmazione: python
 
 ## Librerie ed utilità usate:
 
