@@ -6,12 +6,12 @@
 
 ## Librerie ed utilità usate:
 
-### Nltk: Natural Language ToolKit
+- ### Nltk: Natural Language ToolKit
 **Nltk** è una *suite di librerie* per lo sviluppo di programmi di linguistica computazionale.
 
 Di essa ci sono state utili le classi di interfaccia alla risorsa *WordNet* e una esaustiva lista di stopwords della lingua inglese.
 
-### numpy: Numeric Python
+- ### numpy: Numeric Python
 **numpy** è una libreria che supporta implementazioni di *grandi matrici* e *array multidimensionali* e mette a disposizione una vasta collezione di funzioni matematiche di alto livello per poter operare efficientemente su di esse.
 
 Di essa abbiamo utilizzato le funzioni per il calcolo della *covarianza*, della *deviazione standard*, della *media* .
@@ -20,17 +20,17 @@ Abbiamo inoltre utilizzato i tipi primitivi *array* e *float64*, non presenti in
 **PS:** notare che *array* di numpy è diverso da *list* presente in python, in quanto fortemente orientato al calcolo matematico.
 Su di esso possono ad esempio essere chiamate funzioni di utilità come *shape*, *rank* e *full*.
 
-### scipy: Scientific Python
-**scipy** è una libreria che implementa strumenti per effettuare ottimizzazione numerica, algebra lineare, integrazione e *statistica*.
+- ### scipy: Scientific Python
+**scipy** è una libreria che implementa strumenti per ottimizzazione numerica, algebra lineare, integrazione e *statistica*.
 
 Di essa abbiamo utilizzato le funzioni *rankdata*, *pearsonr* e *spearmanr*.
 
-### sklearn: Scientific Kit of Learning
+- ### sklearn: Scientific Kit of Learning
 **sklearn** è una libreria che implementa modelli e algoritmi per apprendimento automatico.
 
 Di essa abbiamo utilizzato la funzione per effettuare *cosine similarity*.
 
-### urllib, json
+- ### urllib, json
 Per scambiare messaggi *REST* con il server di *BabelNet*, ci sono state utili le librerie **urllib** e **json** di python.
 
 ## Moduli python
