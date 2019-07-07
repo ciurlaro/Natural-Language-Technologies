@@ -57,21 +57,24 @@ A ciascuna coppia è attribuito un **valore numerico [0,10]**, che rappresenta l
 L'esercizio consiste nell'**implementare tre misure di similarità** basate su WordNet, le quali risultano essere rispettivamente:
 
 - **Wu & Palmer** 
-
-     ![equation](https://latex.codecogs.com/gif.latex?cs%28s1%2Cs2%29%3D%5Cfrac%7B2*depth%28LCS%29%7D%7Bdepth%28s1%29&plus;depth%28s2%29%7D)
-    
-     dove *LCS* risulta essere il primo antenato comune, detto *Lowest Common Subsumer*, fra i sensi *s1* e *s2* e *depth(x)* è una funzione che misura la distanza fra la radice di WordNet e il synset *x*.
+ <p align="center">
+     <img src="https://latex.codecogs.com/gif.latex?cs%28s1%2Cs2%29%3D%5Cfrac%7B2*depth%28LCS%29%7D%7Bdepth%28s1%29&plus;depth%28s2%29%7D">
+ </p>
+ 
+dove *LCS* risulta essere il primo antenato comune, detto *Lowest Common Subsumer*, fra i sensi *s1* e *s2* e *depth(x)* è una funzione che misura la distanza fra la radice di WordNet e il synset *x*.
 
 - **Shortest Path**
-
-     ![equation](https://latex.codecogs.com/gif.latex?sim_%7Bpath%7D%28s1%2Cs2%29%3D2*depthMax%20-%20len%28s1%2Cs2%29)
+<p align="center">
+     <img src="https://latex.codecogs.com/gif.latex?sim_%7Bpath%7D%28s1%2Cs2%29%3D2*depthMax%20-%20len%28s1%2Cs2%29">
+ </p>
     
-     dove *depthMax*, data una specifica versione di WordNet, risulta essere un valore fissato (nel nostro caso, con la versione 3.0 di WordNet, ha valore pari a 40).
+dove *depthMax*, data una specifica versione di WordNet, risulta essere un valore fissato (nel nostro caso, con la versione 3.0 di WordNet, ha valore pari a 40).
 
 - **Leakcock & Chodorow**
+<p align="center">
+     <img src="https://latex.codecogs.com/gif.latex?sim_%7BLC%7D%28s1%2Cs2%29%3D-log%5Cfrac%7Blen%28s1%2Cs2%29%7D%7B2*depthMax%7D">
+ </p>
 
-     ![equation](https://latex.codecogs.com/gif.latex?sim_%7BLC%7D%28s1%2Cs2%29%3D-log%5Cfrac%7Blen%28s1%2Cs2%29%7D%7B2*depthMax%7D)
-    
 - **Indici di correlazione**
      
      Per ciascuna di tali misure di similarità, effettuiamo anche il calcolo degli **indici di correlazione di**:
@@ -114,8 +117,9 @@ L’**input** per questo esercizio è costituito da un **file** di testo che ha 
 Tale algoritmo rappresenta di gran lunga uno degli algoritmi di sense disambiguation più studiati.
 
 **Pseudocodice** dell'algoritmo su cui sono basate le implementazioni all'interno dell'esercitazione:
-
+<p align="center">
 <img src="https://user-images.githubusercontent.com/37592014/60672048-c03b0880-9e74-11e9-8769-27215887fb7b.PNG" width="60%" height="30%">
+</p>
 
 Rispettivamente, l'algoritmo di Lesk è stato implementato in tre varianti:
 - La prima rappresenta l'implementazione dello pseudocodice presentato nell'immagine qui sopra. 
