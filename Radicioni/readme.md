@@ -72,13 +72,19 @@ L'esercizio consiste nell'**implementare tre misure di similarità** basate su W
 
      ![equation](https://latex.codecogs.com/gif.latex?sim_%7BLC%7D%28s1%2Cs2%29%3D-log%5Cfrac%7Blen%28s1%2Cs2%29%7D%7B2*depthMax%7D)
     
-     Per ciascuna di tali misure di similarità, effettuiamo anche il calcolo degli **indici di correlazione di Spearman**:
+- **Indici di correlazione**
+     
+     Per ciascuna di tali misure di similarità, effettuiamo anche il calcolo degli **indici di correlazione di**:
 
-     ![equation](https://latex.codecogs.com/gif.latex?r_s%3D%5Crho_%7Brg_X%2Crg_Y%7D%3D%5Cfrac%7Bcov%28rg_X%2Crg_Y%29%7D%7B%5Csigma_%7Brg_X%7D%5Csigma_%7Brg_Y%7D%7D)
+     - **Spearman**: 
+     <p align="center">
+     <img src="https://latex.codecogs.com/gif.latex?r_s%3D%5Crho_%7Brg_X%2Crg_Y%7D%3D%5Cfrac%7Bcov%28rg_X%2Crg_Y%29%7D%7B%5Csigma_%7Brg_X%7D%5Csigma_%7Brg_Y%7D%7D">
+    </p>
     
-     e degli **indici di correlazione di Pearson**:
-    
-     ![equation](https://latex.codecogs.com/gif.latex?%5Crho_%7BX%2CY%7D%3D%5Cfrac%7Bcov%28X%2CY%29%7D%7B%5Csigma_%7BX%7D%5Csigma_%7BY%7D%7D)
+     - **Pearson**:
+     <p align="center">
+     <img src="https://latex.codecogs.com/gif.latex?%5Crho_%7BX%2CY%7D%3D%5Cfrac%7Bcov%28X%2CY%29%7D%7B%5Csigma_%7BX%7D%5Csigma_%7BY%7D%7D">
+     </p>
 
     fra i risultati ottenuti e quelli ‘target’ presenti nel ﬁle annotato.
 
