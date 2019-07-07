@@ -109,11 +109,9 @@ L’**input** per questo esercizio è costituito da un **file** di testo che ha 
 ## Algoritmo di Lesk
 Tale algoritmo rappresenta di gran lunga uno degli algoritmi di sense disambiguation più studiati.
 
-Di seguito riportiamo lo pseudocodice dell'algoritmo su cui si sono basate le implementazioni all'interno dell'esercitazione:
+**Pseudocodice** dell'algoritmo su cui sono basate le implementazioni all'interno dell'esercitazione:
 
-<p align="center">
-    <img src="https://user-images.githubusercontent.com/37592014/60672048-c03b0880-9e74-11e9-8769-27215887fb7b.PNG" width="90%" height="45%">
-</p>
+<img src="https://user-images.githubusercontent.com/37592014/60672048-c03b0880-9e74-11e9-8769-27215887fb7b.PNG" width="60%" height="30%">
 
 Rispettivamente, l'algoritmo di Lesk è stato implementato in tre varianti:
 - La prima rappresenta l'implementazione dello pseudocodice presentato nell'immagine qui sopra. 
