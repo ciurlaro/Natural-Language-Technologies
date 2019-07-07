@@ -88,6 +88,7 @@ L'esercizio consiste nell'**implementare tre misure di similarità** basate su W
      </p>
 
     fra i risultati ottenuti e quelli ‘target’ presenti nel ﬁle annotato.
+    
 
 ## Risultati ottenuti 
 Di seguito sono riportati i valori finali ottenuti:
@@ -160,7 +161,14 @@ Per quanto riguarda i risultati ottenuti attraverso la seconda e terza versione 
 | **Gabbia**        |  0.8128527487138741  | -  | 0.8388276512272342 | 
 | **Iurlaro**        |  0.7583300448215048  |  0.8388276512272342 | - | 
 
-3. **Effettuare sense identification**, ovvero *identificare i sensi che massimizzano il punteggio di similarità* fra 2 termini.
-  A tale scopo è stata applicata la misura di *cosine similarity* tra i **vettori nasari** forniti dal file `mini-nasari.tsv`. 
+3. **Effettuare sense identification**, ovvero *identificare i sensi che massimizzano il punteggio di similarità* fra 2 termini, per ogni coppia.
+<p align="center">
+ <img src="https://latex.codecogs.com/gif.latex?c_{1},&space;c_{2}&space;\longleftarrow&space;\underset{c_{1}&space;\in&space;s\left(w_{1}\right),&space;c_{2}&space;\in&space;s\left(w_{2}\right)}{\arg&space;\max&space;}\left[\operatorname{sim}\left(c_{1},&space;c_{2}\right)\right]" title="c_{1}, c_{2} \longleftarrow \underset{c_{1} \in s\left(w_{1}\right), c_{2} \in s\left(w_{2}\right)}{\arg \max }\left[\operatorname{sim}\left(c_{1}, c_{2}\right)\right]" />
+</p> 
+
+- A tale scopo è stata applicata la misura di **cosine similarity** tra i *vettori nasari* forniti dal file `mini-nasari.tsv`. 
+  <p align="center">
+  <img src="https://latex.codecogs.com/gif.latex?cos\_similarity(A,B)=\frac{A&space;\cdot&space;B}{\|A\|\|B\|}" title="cos\_similarity(A,B)=\frac{A \cdot B}{\|A\|\|B\|}" />
+  </p>
   
 4. **Valutare** l'appropriatezza della coppia dei sensi identificati, stabilendo se i sensi in questione sono quelli idealmente selezionati al momento dell’annotazione.
