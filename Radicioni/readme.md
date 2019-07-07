@@ -1,5 +1,3 @@
-# Natural-Language-Technologies
-
 # Dettagli implementativi
 
 ### Linguaggio di programmazione: python
