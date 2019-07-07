@@ -1,5 +1,47 @@
 # Natural-Language-Technologies
 
+# Dettagli implementativi
+
+### Linguaggio di programmazione: python
+
+## Librerie ed utilità usate:
+
+### Nltk: Natural Language ToolKit
+**Nltk** è una *suite di librerie* per lo sviluppo di programmi di linguistica computazionale.
+
+Di essa ci sono state utili le classi di interfaccia alla risorsa *WordNet* e una esaustiva lista di stopwords della lingua inglese.
+
+### numpy: Numeric Python
+**numpy** è una libreria che supporta implementazioni di *grandi matrici* e *array multidimensionali* e mette a disposizione una vasta collezione di funzioni matematiche di alto livello per poter operare efficientemente su di esse.
+
+Di essa abbiamo utilizzato le funzioni per il calcolo della *covarianza*, della *deviazione standard*, della *media* .
+Abbiamo inoltre utilizzato i tipi primitivi *array* e *float64*, non presenti in nessuna versione vanilla di python.
+
+**PS:** notare che *array* di numpy è diverso da *list* presente in python, in quanto fortemente orientato al calcolo matematico.
+Su di esso possono ad esempio essere chiamate funzioni di utilità come *shape*, *rank* e *full*.
+
+### scipy: Scientific Python
+**scipy** è una libreria che implementa strumenti per effettuare ottimizzazione numerica, algebra lineare, integrazione e *statistica*.
+
+Di essa abbiamo utilizzato le funzioni *rankdata*, *pearsonr* e *spearmanr*.
+
+### sklearn: Scientific Kit of Learning
+**sklearn** è una libreria che implementa modelli e algoritmi per apprendimento automatico.
+
+Di essa abbiamo utilizzato la funzione per effettuare *cosine similarity*.
+
+### urllib, json
+Per scambiare messaggi *REST* con il server di *BabelNet*, ci sono state utili le librerie **urllib** e **json** di python.
+
+## Moduli python
+Ciascun esercizio è diviso concettualmente per **moduli**, seguendo i seguenti criteri:
+
+- `main` è il modulo *principale*, da lanciare al fine di avviare l'esecuzione
+- `logic` contiene l'implementazione della *logica* applicativa
+- `init`, ove presente, *inizializza* dati necessari allo svolgimento dell'esercizio
+
+Gli altri file contengono metodi di utilità o dati in forma tabulare da elaborare.
+
 # Esercizio 1 - Conceptual similarity with WordNet
 Dati in input due termini, il task di conceptual similarity consiste nel fornire un punteggio numerico di similarità che ne indichi la vicinanza semantica.
 Nello specifico abbiamo che:
@@ -42,15 +84,6 @@ e degli **indici di correlazione di Pearson**:
 
 fra i risultati ottenuti e quelli ‘target’ presenti nel ﬁle annotato.
 
-## Librerie utilizzate
-
-## Moduli python
-Abbiamo deciso di suddividere l'esercitazione in **tre moduli** che sono rispettivamente:
-
-- `main` che rappresenta il modulo principale dell'esercitazione
-- `logic` che contiene l'implementazione dei metodi utilizzati per effettuare il calcolo delle misure di similarità e dei rispettivi indici di correlazione menzionati in precedenza
-- `WordSimReader` che contiene l'implementazione del metodo utilizzato per la lettura dell'omonimo file CSV in input `WordSim353`
-
 ## Risultati ottenuti 
 Di seguito sono riportati i valori finali ottenuti:
 
@@ -87,10 +120,6 @@ Rispettivamente, l'algoritmo di Lesk è stato implementato in tre varianti:
 - La terza versione, invece, prevede l'estensione del contesto andando a trattare iperonimi ed iponimi associate alle paorle del contesto. 
 Generando un contesto molto più vasto, proviamo a vedere se le prestazioni possono migliorare e/o cambiare in qualche modo.
 
-## Librerie utilizzate
-
-## Moduli python
-
 
 ## Risultati ottenuti 
 Riportiamo i risultati calcolati in termini di accuracy.
@@ -106,7 +135,7 @@ Per quanto riguarda i risultati ottenuti attraverso la seconda e terza versione 
 
 # Esercizio 3 - Annotazione di Corpora e Sense Identiﬁcation 
 Per quanto riguarda il terzo ed ultimo esercizio, sono state inizialmente annotate 100 coppie di termini con un valore di similarity compreso tra 0 e 4.
-Le coppie sono state fornite dal file it.test.data.txt. Successivamente sono stati calcolati il valore medio e l’inter-rater agreement fra le annotazioni dei tre diversi annotatori. Per il calcolo dell' inter-rater agreement sono stati utilizzati, come misure, gli indici di correlazione di Pearson e Spearman.
+Le coppie sono state fornite dal file `it.test.data.txt`. Successivamente sono stati calcolati il valore medio e l’inter-rater agreement fra le annotazioni dei tre diversi annotatori. Per il calcolo dell' inter-rater agreement sono stati utilizzati, come misure, gli indici di correlazione di Pearson e Spearman.
 I risultati di questa computazione sono riportati in fondo.
 Successivamente, a scopo di identificare i corretti sensi di Babel, è stata implementata la cosine similarity sui vettori nasari forniti dal file mini-nasari.tsv. Una volta effettuato il task di sense indentification, sono stati restituiti i corretti sensi, ovvero quelli che rendevano massima la cosine similarity, e la rispettiva glossa.
 
