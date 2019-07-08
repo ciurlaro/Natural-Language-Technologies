@@ -4,7 +4,6 @@ from pathlib import Path
 from Radicioni.Esercizio_3.sem_eval_mapper import cognome
 import numpy as np
 from sklearn.metrics.pairwise import cosine_similarity
-import itertools
 import pprint
 from scipy.stats import pearsonr, spearmanr
 from numpy import mean
@@ -161,7 +160,7 @@ def unify_annotations(files: list) -> defaultdict:
     return output_dict
 
 
-def extract_evaluations(file_list):
+def extract_evaluations(file_list) -> list:
     """
     Creates a list of lists. Each created list element is a tuple containing a couple (annotated words) and a list of
     each person evaluation
@@ -229,7 +228,14 @@ def get_results(file_list):
         print("(", elem[0], ",", elem[1], ")", "PC: ", pearson[0], "SC: ", spearman[0], "\n")
 
 
-def get_gloss(id: str, key: str):
+def get_gloss(id: str, key: str) -> list:
+    """
+    Handles REST messages exchange with BabelNet server in order to get each gloss of our babel synset ID. 
+    :param id: babel synset ID of the input concept
+    :param key: key used to access BabelNet REST service
+    :return: a list containing input concept's gloss
+    """
+    
     import urllib
     import urllib3
     import json
